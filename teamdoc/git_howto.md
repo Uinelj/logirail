@@ -3,6 +3,7 @@ Comment utiliser git ?
 
 git, c'est un peu comme SVN, avec quelques nuances et une syntaxe différente.
 
+__NB : Je n'ai jamais utilisé Git autrement qu'en console et ça a toujours très bien marché. Je vous conseille de faire de même..__
 ## Nuances
 
 * Sur SVN, quand on commit, on va balancer notre commit sur le dépôt. Avec git, on commit en __local__, et après ça on balance notre commit sur le dépôt. Ca permet par exemple de travailler un bout de temps hors-ligne, puis de push tout ses commits après.
