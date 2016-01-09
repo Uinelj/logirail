@@ -9,6 +9,6 @@ Gris : `#393939`
 Le 'A' : `#fe0009`
 Le cercle : `#0e3e80`
 Feu de signalisation : 
-* Rouge : #fe666b
-* Orange : #ffb085
-* Vert : #77b868
+* Rouge : `#fe666b`
+* Orange : `#ffb085`
+* Vert : `#77b868`
