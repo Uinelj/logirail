@@ -1,5 +1,6 @@
-<center>#Planning release 1</center>
-<center>Prévision des travaux, cycle de développement, contraintes.</center>
+<center>Planning release 1</center>
+===================================
+<center>_Prévision des travaux, cycle de développement, contraintes._</center>
 Moteur
 
 * Algo du canton
