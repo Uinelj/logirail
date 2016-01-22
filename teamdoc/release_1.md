@@ -1,5 +1,5 @@
-## Features de la release 1
-
+<center># Planning release 1</center>
+<center>Prévision des travaux, cycle de développement, contraintes.</center>
 Moteur
 
 * Algo du canton
