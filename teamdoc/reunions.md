@@ -32,7 +32,7 @@
 7.  L’horloge influe sur la vitesse de la simulation.
 ## IHM
 L'IHM se veut être conviviale et intuitive, et un grand nombre d'informations doivent être accessibles au coin de l'oeil. L'interface se veut claire et sans fioritures, afin de maximiser la lisibilité des informations.
-<img src="http://uinelj.eu/misc/Logirail/mockup2MAC.jpg" />
-<img src="http://uinelj.eu/misc/Logirail/mockupMAC.jpg" />
-<img src="http://uinelj.eu/misc/Logirail/mockup2.jpg" />
-<img src="http://uinelj.eu/misc/Logirail/mockup.jpg" />
+<center><img src="http://uinelj.eu/misc/Logirail/mockup2MAC.jpg" />
+</center><center><img src="http://uinelj.eu/misc/Logirail/mockupMAC.jpg" />
+</center><center><img src="http://uinelj.eu/misc/Logirail/mockup2.jpg" />
+</center><center><img src="http://uinelj.eu/misc/Logirail/mockup.jpg" />
