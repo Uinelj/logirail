@@ -1,4 +1,4 @@
-package logirail;
+
 
 /*
  * Main d'exemple, qui affiche un hello world. 
