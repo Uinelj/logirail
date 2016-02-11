@@ -1,0 +1,194 @@
+{ 
+  "gares": [ 
+      {
+          "name": "Cergy-Le-Haut", 
+          "id":"0"
+      }, 
+      {
+          "name": "Cergy-Saint-Christophe", 
+          "id":"1"
+      }, 
+      {
+          "name": "Cergy-Prefecture", 
+          "id":"2"
+      },
+      {
+          "name": "Neuville-Université", 
+          "id": "3"
+      },
+      {
+          "name": "Conflans-Fin-D'oise", 
+          "id": "4"
+      },
+      {
+          "name": "Acheres-Ville", 
+          "id":"5"
+      },
+      {
+          "name": "poissy", 
+          "id":"6"
+      },
+      {
+          "name": "Achères - Grand-Cormier", 
+          "id":"7"
+      },
+      {
+          "name": "Maisons-Laffitte", 
+          "id":"8"
+      },
+      {
+          "name": "Maisons-Laffitte", 
+          "id":"9"
+      },
+      {
+          "name": "Sartrouville", 
+          "id":"10"
+      },
+      {
+          "name": "Houilles - Carrières-sur-Seine", 
+          "id":"11"
+      },
+      {
+          "name": "Saint-Germain-en-Laye", 
+          "id":"12"
+      },
+      {
+          "name": "Le Vésinet - Le Pecq", 
+          "id":"13"
+      },
+      {
+          "name": "Le Vésinet-Centre", 
+          "id":"14"
+      },
+      {
+          "name": "Chatou - Croissy", 
+          "id":"15"
+      },
+      {
+          "name": "Rueil-Malmaison", 
+          "id":"16"
+      },
+      {
+          "name": "Nanterre-Ville", 
+          "id":"17"
+      },
+      {
+          "name": "Nanterre-Université", 
+          "id":"18"
+      },
+      {
+          "name": "Nanterre-Préfecture", 
+          "id":"19"
+      },
+      {
+          "name": "La Défense", 
+          "id":"20"
+      },
+      {
+          "name": "	Charles-de-Gaulle - Étoile", 
+          "id":"21"
+      },
+      {
+          "name": "Auber", 
+          "id":"22"
+      },
+      {
+          "name": "Châtelet - Les Halles", 
+          "id":"23"
+      },
+      {
+          "name": "Gare de Lyon", 
+          "id":"24"
+      },
+      {
+          "name": "Nation", 
+          "id":"25"
+      },
+      {
+          "name": "Vincennes", 
+          "id":"26"
+      },
+      {
+          "name": "Fontenay-sous-Bois", 
+          "id":"27"
+      },
+      {
+          "name": "Nogent-sur-Marne", 
+          "id":"28"
+      },
+      {
+          "name": "Joinville-le-Pont", 
+          "id":"29"
+      },
+      {
+          "name": "Saint-Maur - Créteil ", 
+          "id":"30"
+      },
+      {
+          "name": "Le Parc de Saint-Maur", 
+          "id":"31"
+      },
+      {
+          "name": "Champigny", 
+          "id":"32"
+      },
+      {
+          "name": "La Varenne - Chennevières", 
+          "id":"33"
+      },
+      {
+          "name": "Sucy - Bonneuil", 
+          "id":"34"
+      },
+      {
+          "name": "Boissy-Saint-Léger", 
+          "id":"35"
+      },
+      {
+          "name": "Val de Fontenay", 
+          "id":"36"
+      },
+      {
+          "name": "Neuilly-Plaisance", 
+          "id":"37"
+      },
+      {
+          "name": "Bry-sur-Marne (RATP)", 
+          "id":"38"
+      },
+      {
+          "name": "	Noisy-le-Grand - Mont d'Est	", 
+          "id":"39"
+      },
+      {
+          "name": "Noisy - Champs", 
+          "id":"40"
+      },
+      {
+          "name": "Noisiel", 
+          "id":"41"
+      },
+      {
+          "name": "Lognes", 
+          "id":"42"
+      },
+      {
+          "name": "Torcy", 
+          "id":"43"
+      },
+      {
+          "name": "Bussy-Saint-Georges", 
+          "id":"44"
+      },
+      {
+          "name": "Val d'Europe", 
+          "id":"45"
+      },
+      {
+          "name": "Marne-la-Vallée - Chessy", 
+          "id":"46"
+      }
+   ] 
+} 
+
+

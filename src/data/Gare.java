@@ -9,28 +9,40 @@ package data;
 
 public class Gare extends Canton{
 	
-	private String type;
+	private String name;
+	private int id;
 	
 	/**
 	 * @param type
 	 * 	type of Gare
 	 */
 	
-	public Gare(String type){
-		super(type);
+	public Gare(String name, int id){
+		super(name, id);
+		this.setId(id);
+		this.setName(name);
+	}
+
+	public String getName() {
+		return super.getName();
+	}
+
+	public void setName(String type) {
+		super.setName(type);
+	}
+	
+	public int getId(){
+		return super.getId();
+	}
+	
+	public void setId(){
+		super.setId(id);
 	}
 
 	@Override
 	public String toString() {
-		return "Gare [name=" + type + "]";
+		return "Gare [name=" + super.getName() + ", id=" + super.getId() + "]";
 	}
 
-	public String getType() {
-		return super.getType();
-	}
-
-	public void setType(String type) {
-		super.setType(type);
-	}
 
 }
