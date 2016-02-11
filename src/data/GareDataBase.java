@@ -10,7 +10,7 @@ public class GareDataBase {
 	private ArrayList<Gare> gares;
 	
 	public GareDataBase(){
-		this.setGares(new ArrayList<Gare>());
+		this.gares= new ArrayList<Gare>();
 	}
 
 	
@@ -24,10 +24,11 @@ public class GareDataBase {
  
             JSONObject jsonObject = (JSONObject) obj;
             JSONArray lang = (JSONArray) jsonObject.get("gares");
-            Gare gare = new Gare(null, -1);
+
             Iterator it = lang.iterator();
             	while (it.hasNext()) {                
 	            	JSONObject innerObj = (JSONObject) it.next();
+	                Gare gare = new Gare(null, -1);
 	            	gare = new Gare((String)innerObj.get("name"),Integer.parseInt((String) innerObj.get("id")));
 	            	gares.add(gare);
             	}
