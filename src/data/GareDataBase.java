@@ -1,7 +1,7 @@
 package data;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import Json.JSONArray;
+import Json.JSONObject;
+import Json.JSONParser;
 
 import java.util.ArrayList;
 import java.io.FileReader;
@@ -24,15 +24,14 @@ public class GareDataBase {
  
             JSONObject jsonObject = (JSONObject) obj;
             JSONArray lang = (JSONArray) jsonObject.get("gares");
-            Gare gare;
-            for(int i=0; i<lang.size(); i++){
+            Gare gare = new Gare(null, -1);
             Iterator it = lang.iterator();
             	while (it.hasNext()) {                
 	            	JSONObject innerObj = (JSONObject) it.next();
-	             	gare = new Gare((String)innerObj.get("name"),Integer.parseInt((String) innerObj.get("id")));
-	             	gares.add(gare);
+	            	gare = new Gare((String)innerObj.get("name"),Integer.parseInt((String) innerObj.get("id")));
+	            	gares.add(gare);
             	}
-            }
+            	
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,4 +1,4 @@
-package org.json.simple;
+package Json;
 
 import java.io.IOException;
 import java.io.Writer;
