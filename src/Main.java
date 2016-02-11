@@ -14,7 +14,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		GareDataBase gare = new GareDataBase();
-		gare.LoadJsonGare("gare.json");
+		gare.LoadJsonGare("../data/gare.json");
 		System.out.println(gare);
 	}
 
