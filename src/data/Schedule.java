@@ -1,10 +1,10 @@
 package data;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
-import java.sql.Time;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +21,12 @@ import Json.JSONParser;
  */
 public class Schedule {
 	private String code;
-	private ArrayList<Time> schedules = new ArrayList<Time>();
+	private ArrayList<Date> schedules = new ArrayList<Date>();
 
+	public Schedule (){
+		
+	}
+	
 	public Schedule(String code) {
 		this.code = code ;
 	}
@@ -34,10 +38,8 @@ public class Schedule {
 	 * 
 	 * Pas fini.
 	 */
-	public Schedule scheduleForOneMission(String code) {
-		Schedule sch = new Schedule(code);
-		ArrayList<Time> schedulesFromJson = new ArrayList<Time>();
-		File json = new File("../../data/schedules.json");
+	public void scheduleForOneMission(String code) {
+		File json = new File("data/schedule.json");
 		JSONParser fileParser = new JSONParser();
 		String schedulesNotParsed = "" ;
 		
@@ -46,14 +48,24 @@ public class Schedule {
             Object obj = fileParser.parse(new FileReader(json));
  
             JSONObject jsonObject = (JSONObject) obj;
-            JSONArray schedulesArray = (JSONArray) jsonObject.get("schedules");
-
+            JSONArray schedulesArray = (JSONArray) jsonObject.get("Schedules");
+            
             Iterator it = schedulesArray.iterator();
             	while (it.hasNext()) { 
 	            	JSONObject innerObj = (JSONObject) it.next();
 	            	
 	            	if (((String) innerObj.get("MissionCode")).equals(code)){
-	            		schedulesNotParsed = (String)innerObj.get(schedules);
+	            		schedulesNotParsed = (String)innerObj.get("schedules");
+	            		
+	            		// Parsing des horaires de départ séparer par le caractères ";"
+	            		for (String schedule : schedulesNotParsed.split(";")){
+	            			// Conversion de string en objet Date (UNIX).
+	            			DateFormat format = new SimpleDateFormat("hh:mm:ss");
+	            			Date date = format.parse(schedule);
+	            			
+	            			schedules.add(date);
+	            			
+	            		}
 	            		// Parser par rapport aux points virgules et ajouter chaque date dans schedulesFromJson.
 	            		
 	            		break ;
@@ -63,17 +75,13 @@ public class Schedule {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        sch.setSchedules(schedulesFromJson);
-        
-		return sch;
 	}
 	
 	public String getCode(){
 		return code ;
 	}
 	
-	public ArrayList<Time> getSchedules(){
+	public ArrayList<Date> getSchedules(){
 		return schedules;
 	}
 	
@@ -81,12 +89,22 @@ public class Schedule {
 		this.code = code ;
 	}
 	
-	public void setSchedules (ArrayList<Time> schedules){
+	public void setSchedules (ArrayList<Date> schedules){
 		this.schedules = schedules ;
 	}
 	
 	public String toString() {
-		return "" ;
+		String message ;
+		String mission = "Code mission : " + code ;
+		
+		message = mission + "\n" ;
+		message = message + "Horaires :\n" ;
+		
+		for (int i = 0 ; i < schedules.size() ; i++){
+			message = message + schedules.get(i).toString() + "\n" ;
+		}
+		
+		return message ;
 	}
 
 }

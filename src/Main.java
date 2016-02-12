@@ -1,4 +1,5 @@
 import data.GareDataBase;
+import data.Schedule;
 
 
 
@@ -16,6 +17,9 @@ public class Main {
 		GareDataBase gare = new GareDataBase();
 		gare.LoadJsonGare("data/gare.json");
 		System.out.println(gare);
+		
+		Schedule schedule = new Schedule("TEDI");
+		schedule.scheduleForOneMission("TEDI");
+		System.out.println(schedule.toString());
 	}
-
 }
