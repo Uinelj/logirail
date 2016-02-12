@@ -1,7 +1,7 @@
 package data;
-import Json.JSONArray;
-import Json.JSONObject;
-import Json.JSONParser;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import java.util.ArrayList;
 import java.io.FileReader;
