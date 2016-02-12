@@ -7,49 +7,30 @@ package data;
  */
 public class Canton {
 	
-	private String name;
+
 	private int id;
 	/**
 	 * @param name
 	 * name of canton
 	 */
-	public Canton(String name, int id){
-		this.setName(name);
+	public Canton(int id){
 		this.setId(id);
 	}
-
-
 	
-
-	@Override
-	public String toString() {
-		return "Canton [name=" + name + ", id=" + id + "]";
-	}
-
-
-
-
 	public int getId() {
 		return id;
 	}
 
+
+	@Override
+	public String toString() {
+		return "Canton [id=" + id + "]";
+	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
 
-
-
-	public String getName() {
-		return name;
-	}
-
-
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 }
