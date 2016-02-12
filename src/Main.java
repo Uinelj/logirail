@@ -1,3 +1,6 @@
+import java.net.SocketPermission;
+import java.util.ArrayList;
+
 import data.GareDataBase;
 import data.Schedule;
 
@@ -21,5 +24,11 @@ public class Main {
 		Schedule schedule = new Schedule("TEDI");
 		schedule.scheduleForOneMission("TEDI");
 		System.out.println(schedule.toString());
+		
+		ArrayList<Schedule> test = new ArrayList<Schedule>();
+		test = schedule.schedulesParsing();
+		for (int i = 0 ; i < test.size() ; i++){
+			System.out.println(test.get(i).toString());
+		}
 	}
 }
