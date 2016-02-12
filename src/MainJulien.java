@@ -7,5 +7,4 @@ public class MainJulien {
 		MissionCodeDatabase mcd = new MissionCodeDatabase();
 		
 	}
-
 }
