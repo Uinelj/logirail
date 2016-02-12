@@ -1,8 +1,9 @@
-import java.net.SocketPermission;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import data.GareDataBase;
 import data.Schedule;
+import data.ScheduleDatabase;
+import data.TrainModel;
 
 
 
@@ -21,14 +22,15 @@ public class Main {
 		gare.LoadJsonGare("data/gare.json");
 		System.out.println(gare);
 		
-		Schedule schedule = new Schedule("TEDI");
-		schedule.scheduleForOneMission("TEDI");
-		System.out.println(schedule.toString());
+		// Test ScheduleDatabase
+		ScheduleDatabase schedules = new ScheduleDatabase();
 		
-		ArrayList<Schedule> test = new ArrayList<Schedule>();
-		test = schedule.schedulesParsing();
-		for (int i = 0 ; i < test.size() ; i++){
-			System.out.println(test.get(i).toString());
+		// Test Train Model
+		TrainModel testModel = new TrainModel("test");
+		ArrayList<TrainModel> models = new ArrayList<TrainModel>() ;
+		models = testModel.trainModelJsonParser();
+		for (int i = 0 ; i < models.size() ; i++){
+			System.out.println(models.get(i).toString());
 		}
 	}
 }
