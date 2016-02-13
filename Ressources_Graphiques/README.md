@@ -16,3 +16,8 @@ Feu de signalisation :
 * Rouge : `#fe666b`
 * Orange : `#ffb085`
 * Vert : `#77b868`
+
+UML
+==
+
+Pour modifier l'UML allez sur [ça](http://draw.io) et importez le .xml.
