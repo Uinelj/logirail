@@ -5,51 +5,34 @@ package data;
  * 
  */
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 //TODO : Keep coherence between misionCode and MissionCodeDatabase
 public class MissionCode {
-	private String name;
-	private LinkedList<Canton> trajectory;
+	private String id;
+	private ArrayList<Integer> missionCode;
 	
 	/**
-	 * @param name
+	 * @param id
 	 * 	name of the codeMission. 
 	 * 	ex : NORA, ...
-	 */
+	 */ 
 	
 
-	public MissionCode(String name, LinkedList<Canton> trajectory){
-		this.setName(name);
-		this.setTrajectory(trajectory);
+	public MissionCode(){
+		missionCode = new ArrayList<Integer>();
+		
 	}
 
-
-	public String getName() {
-		return name;
+	public String getId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public LinkedList<Canton> getTrajectory() {
-		return trajectory;
-	}
-
-	public void setTrajectory(LinkedList<Canton> trajectory) {
-		this.trajectory = trajectory;
+	public void setId(String id) {
+		this.id = id;
 	}
 	
-	public void addFist(Canton canton){
-		trajectory.addFirst(canton);
+	public void add(Integer value){
+		missionCode.add(value);
 	}
-	
-	public void addLast(Canton canton){
-		trajectory.addLast(canton);
-	}
-	
-	public void add(Canton canton, int position){
-		trajectory.add(position, canton);
-	}
-
-}
+  
+} 
