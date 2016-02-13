@@ -6,7 +6,7 @@ package data;
  */
 
 import java.util.LinkedList;
-
+//TODO : Keep coherence between misionCode and MissionCodeDatabase
 public class MissionCode {
 	private String name;
 	private LinkedList<Canton> trajectory;
