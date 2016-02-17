@@ -66,6 +66,8 @@ public class FirstView extends Application{
 		//root.getChildren().add(checkBox);
 		//root.getChildren().add(btn);
 		primaryStage.setScene(scene);
+		 primaryStage.setMinWidth(800);
+		 primaryStage.setMinHeight(600);
 		primaryStage.setResizable(true);
 		primaryStage.sizeToScene();
 		primaryStage.show();

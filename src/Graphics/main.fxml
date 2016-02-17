@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXSlider?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,8 +19,9 @@
 
 <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
+    <MenuBar styleClass="teal-200" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css" VBox.vgrow="NEVER">
       <menus>
+            <Menu mnemonicParsing="false" text="Logirail" />
         <Menu mnemonicParsing="false" text="File">
           <items>
             <MenuItem mnemonicParsing="false" text="Restart" />
@@ -26,9 +30,6 @@
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Quit" />
           </items>
-               <graphic>
-                  <Label text="Logirail     " />
-               </graphic>
         </Menu>
         <Menu mnemonicParsing="false" text="Help">
           <items>
@@ -39,7 +40,7 @@
     </MenuBar>
     <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" orientation="VERTICAL" VBox.vgrow="ALWAYS">
       <items>
-        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="898.0">
+        <AnchorPane prefHeight="437.0" prefWidth="898.0" styleClass="white" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css">
           <children>
             <Label alignment="CENTER" layoutX="536.0" layoutY="193.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Master" textAlignment="CENTER" wrapText="false">
               <font>
@@ -49,16 +50,38 @@
                 <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
               </textFill>
             </Label>
+                  <JFXHamburger fx:id="menu" alignment="TOP_RIGHT" layoutX="972.0" layoutY="22.0" stylesheets="@../../../jfoenix/src/resources/css/jfoenix-design.css" AnchorPane.rightAnchor="20.0" />
+                  <JFXSlider fx:id="zoom" layoutX="40.0" layoutY="56.0" />
           </children>
         </AnchorPane>
-        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="800.0">
-          <children>
-            <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Details" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-          </children>
-        </AnchorPane>
+            <SplitPane dividerPositions="0.23483365949119372, 0.5" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="800.0">
+              <items>
+                <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="-Infinity" prefHeight="101.0" prefWidth="318.0" styleClass="white" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css">
+                     <children>
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="5.0" style="&#10;" text="Informations détaillées :" wrapText="false">
+                           <font>
+                              <Font name="Roboto" size="15.0" />
+                           </font></Label>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="-Infinity" prefHeight="101.0" prefWidth="318.0" styleClass="white" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css">
+                     <children>
+                        <Label alignment="CENTER" layoutX="12.0" layoutY="5.0" style="&#10;" text="Informations détaillées :" wrapText="false">
+                           <font>
+                              <Font name="Roboto" size="15.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="white" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" styleClass="white" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css" />
+                    </content>
+                  </ScrollPane>
+              </items>
+            </SplitPane>
       </items>
     </SplitPane>
-    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" styleClass="teal-200" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css" VBox.vgrow="NEVER">
       <children>
         <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
           <font>
