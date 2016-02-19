@@ -7,43 +7,43 @@ import java.util.ArrayList;
  * 
  * @author Alexandre Fourgs 
  * Schedules depending on the mission code. This class
- * parse a JSON file for save the schedules.
+ * parse a JSON file to save the schedules.
  * 
  */
 public class Schedule {
-	private String code;
-	private ArrayList<Date> schedules = new ArrayList<Date>();
+	private String missionCode;
+	private ArrayList<Date> dates = new ArrayList<Date>();
 	
-	public Schedule(String code) {
-		this.code = code ;
+	public Schedule(String missionCode) {
+		this.missionCode = missionCode ;
 	}
 	
 	
 	public String getCode(){
-		return code ;
+		return missionCode ;
 	}
 	
-	public ArrayList<Date> getSchedules(){
-		return schedules;
+	public ArrayList<Date> getDates(){
+		return dates;
 	}
 	
-	public void setCode (String code){
-		this.code = code ;
+	public void setCode (String missionCode){
+		this.missionCode = missionCode ;
 	}
 	
-	public void setSchedules (ArrayList<Date> schedules){
-		this.schedules = schedules ;
+	public void setDates (ArrayList<Date> dates){
+		this.dates = dates ;
 	}
 	
 	public String toString() {
 		String message ;
-		String mission = "Code mission : " + code ;
+		String mission = "Code mission : " + missionCode ;
 		
 		message = mission + "\n" ;
 		message = message + "Horaires :\n" ;
 		
-		for (int i = 0 ; i < schedules.size() ; i++){
-			message = message + schedules.get(i).toString() + "\n" ;
+		for (int i = 0 ; i < dates.size() ; i++){
+			message = message + dates.get(i).toString() + "\n" ;
 		}
 		
 		return message ;

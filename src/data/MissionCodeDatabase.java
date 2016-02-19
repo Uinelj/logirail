@@ -94,4 +94,8 @@ public class MissionCodeDatabase {
 		return missionCodeDatabase.toString();
 		
 	}
+	
+	public HashMap<String,MissionCode> getMissionCodeDatabase (){
+		return missionCodeDatabase;
+	}
 }
