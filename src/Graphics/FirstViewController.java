@@ -14,6 +14,9 @@ import com.jfoenix.controls.JFXSlider;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -25,25 +28,17 @@ import javafx.scene.text.Font;
 public class FirstViewController implements Initializable {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Font x1;
-
-    @FXML
-    private Color x2;
+    private AnchorPane mainView;
 
     @FXML
     private JFXHamburger menu;
-
+    @FXML
+    private VBox mainWindow;
     @FXML
     private JFXSlider zoom;
 
     @FXML
-    private JFXButton test;
+    private ImageView rer;
 
     @FXML
     private Font x3;
@@ -53,32 +48,30 @@ public class FirstViewController implements Initializable {
 
     @FXML
     void initialize() {
-        assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'main.fxml'.";
-        assert x2 != null : "fx:id=\"x2\" was not injected: check your FXML file 'main.fxml'.";
         assert menu != null : "fx:id=\"menu\" was not injected: check your FXML file 'main.fxml'.";
         assert zoom != null : "fx:id=\"zoom\" was not injected: check your FXML file 'main.fxml'.";
-        assert test != null : "fx:id=\"test\" was not injected: check your FXML file 'main.fxml'.";
         assert x3 != null : "fx:id=\"x3\" was not injected: check your FXML file 'main.fxml'.";
         assert x4 != null : "fx:id=\"x4\" was not injected: check your FXML file 'main.fxml'.";
+
+       rer.fitWidthProperty().bind(mainWindow.widthProperty());
+       rer.fitHeightProperty().bind(mainWindow.heightProperty());
 
     }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-	      assert x1 != null : "fx:id=\"x1\" was not injected: check your FXML file 'main.fxml'.";
-	        assert x2 != null : "fx:id=\"x2\" was not injected: check your FXML file 'main.fxml'.";
+
 	        assert menu != null : "fx:id=\"menu\" was not injected: check your FXML file 'main.fxml'.";
 	        assert zoom != null : "fx:id=\"zoom\" was not injected: check your FXML file 'main.fxml'.";
-	        assert test != null : "fx:id=\"test\" was not injected: check your FXML file 'main.fxml'.";
 	        assert x3 != null : "fx:id=\"x3\" was not injected: check your FXML file 'main.fxml'.";
 	        assert x4 != null : "fx:id=\"x4\" was not injected: check your FXML file 'main.fxml'.";
 	}
-	public void wsh(){
 
-	System.out.println("test\n");
-	test.setText("lol");
+	public void filtre(){
+		System.out.println("test");
 	}
+
 	}
 
 
