@@ -18,23 +18,22 @@ import org.json.simple.parser.ParseException;
  * */
 public class MissionCodeDatabase {
 	//TODO : SafetyChecks, clean the code.
-	//TODO : Make it a singleton.
 	//TODO : Don't hardcode missioncodedatabase, road and name.
-	//TODO : Does the missionCodeDatabase has to contain Gares ? 
+	private static MissionCodeDatabase INSTANCE = new MissionCodeDatabase(); 
 	private String dbPath;
-	//private HashMap<String, ArrayList<Integer>> missionCodeDatabase = new HashMap<String, ArrayList<Integer>>();
 	private HashMap<String, MissionCode> missionCodeDatabase = new HashMap<String, MissionCode>();
+	
 	/**
 	 * Constructor for the MissionCodeDatabase object. 
-	 * 
+	 * Private to respect the Singleton design pattern.
 	 * @param path Path to the JSON file.
 	 * */
-	public MissionCodeDatabase(String path){
+	private MissionCodeDatabase(String path){
 		dbPath = path;
 		parseJson(path);
 	}
 	
-	public MissionCodeDatabase(){
+	private MissionCodeDatabase(){
 		this("data/missioncodes.json");
 	}
 	/**
@@ -78,12 +77,16 @@ public class MissionCodeDatabase {
 	 * */
 	// TODO: Make it actually work by emptying the HashMap before.
 	public void reloadJson(){
+		missionCodeDatabase.clear();
 		parseJson(dbPath);
 	}
 	//TODO : Is it more Trash oriented than Object oriented ?
 	/**
 	 * @return an ArrayList of the Gare ID's. May be modified soon.
 	 * */
+	public static MissionCodeDatabase getInstance(){
+		return INSTANCE;
+	}
 	public MissionCode getMissionCode(String missionCode){
 		return missionCodeDatabase.get(missionCode);
 	}
