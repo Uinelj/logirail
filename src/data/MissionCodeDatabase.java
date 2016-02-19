@@ -90,4 +90,8 @@ public class MissionCodeDatabase {
 	public MissionCode getMissionCode(String missionCode){
 		return missionCodeDatabase.get(missionCode);
 	}
+	public String toString(){
+		return missionCodeDatabase.toString();
+		
+	}
 }
