@@ -22,7 +22,8 @@ public class MissionCodeDatabase {
 	//TODO : Don't hardcode missioncodedatabase, road and name.
 	//TODO : Does the missionCodeDatabase has to contain Gares ? 
 	private String dbPath;
-	private HashMap<String, ArrayList<Integer>> missionCodeDatabase = new HashMap<String, ArrayList<Integer>>();
+	//private HashMap<String, ArrayList<Integer>> missionCodeDatabase = new HashMap<String, ArrayList<Integer>>();
+	private HashMap<String, MissionCode> missionCodeDatabase = new HashMap<String, MissionCode>();
 	/**
 	 * Constructor for the MissionCodeDatabase object. 
 	 * 
@@ -63,7 +64,7 @@ public class MissionCodeDatabase {
 					    currentMissionCodeRoad.add(Integer.parseInt(road.get(i).toString()));
 					   } 
 					}
-				missionCodeDatabase.put(missionCode.get("name").toString(), (ArrayList<Integer>) currentMissionCodeRoad.clone());
+				missionCodeDatabase.put(missionCode.get("name").toString(), new MissionCode(missionCode.get("name").toString(), (ArrayList<Integer>) currentMissionCodeRoad.clone()));
 				currentMissionCodeRoad.clear();
 			}
 		} catch (IOException | ParseException e) {
@@ -83,7 +84,7 @@ public class MissionCodeDatabase {
 	/**
 	 * @return an ArrayList of the Gare ID's. May be modified soon.
 	 * */
-	public ArrayList<Integer> getRoute(String missionCode){
+	public MissionCode getMissionCode(String missionCode){
 		return missionCodeDatabase.get(missionCode);
 	}
 }

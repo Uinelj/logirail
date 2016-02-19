@@ -8,31 +8,33 @@ package data;
 import java.util.ArrayList;
 //TODO : Keep coherence between misionCode and MissionCodeDatabase
 public class MissionCode {
-	private String id;
-	private ArrayList<Integer> missionCode;
+	private String name;
+	private ArrayList<Integer> road;
 	
 	/**
-	 * @param id
+	 * @param name
 	 * 	name of the codeMission. 
 	 * 	ex : NORA, ...
 	 */ 
 	
 
-	public MissionCode(){
-		missionCode = new ArrayList<Integer>();
-		
+	public MissionCode(String name, ArrayList<Integer> road){
+		this.name = name;
+		this.road = road;
 	}
 
-	public String getId() {
-		return id;
+	public String getName(){
+		return name;
 	}
-
-	public void setId(String id) {
-		this.id = id;
+	public ArrayList<Integer> getRoad(){
+		return road;
 	}
 	
-	public void add(Integer value){
-		missionCode.add(value);
-	}
-  
+	public String toString(){
+		String ret = "";
+		for(Integer i : road){
+			ret += i + " ";
+		}
+		return ret;
+	}	
 } 
