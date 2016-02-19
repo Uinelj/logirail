@@ -10,6 +10,7 @@ import org.json.simple.parser.JSONParser;
 
 //TODO: Find a way to display accents.
 //TODO: Javadoc
+//TODO: Singleton
 public class GareDataBase {
 	//private ArrayList<Gare> gares;
 	private HashMap<Integer, Gare> gares;
