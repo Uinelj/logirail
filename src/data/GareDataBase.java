@@ -12,17 +12,17 @@ import org.json.simple.parser.JSONParser;
 //TODO: Javadoc
 //TODO: Singleton
 public class GareDataBase {
-	//private ArrayList<Gare> gares;
 	private HashMap<Integer, Gare> gares;
-	public GareDataBase(){
-		//this.gares= new ArrayList<Gare>();
+	private String path = "data/gare.json";
+	private static GareDataBase INSTANCE = new GareDataBase();
+	private GareDataBase(){
 		this.gares = new HashMap<Integer, Gare>();
-		loadJsonGare("data/gare.json");
+		loadJsonGare(path);
 	}
 
 	
 	
-	public void loadJsonGare(String file){
+	private void loadJsonGare(String file){
 		JSONParser parser = new JSONParser();
 		 
         try {
@@ -52,7 +52,9 @@ public class GareDataBase {
 	public Gare getGare(int id){
 		return gares.get(id);
 	}
-
+	public static GareDataBase getInstance(){
+		return INSTANCE;
+	}
 	@Override
 	public String toString() {
 		return "GareDataBase [gares=" + gares + "]";
