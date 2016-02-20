@@ -10,6 +10,6 @@ public class MainJulien {
 		System.out.println(mcd.getMissionCode("ZEBU"));
 		System.out.println(mcd.getMissionCode("NAGA"));*/
 		GareDataBase gdb = GareDataBase.getInstance();
-		System.out.println(gdb.getGare(15));
+		System.out.println(gdb.getGare(17));
 	}
 }

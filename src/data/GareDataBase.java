@@ -11,6 +11,13 @@ import org.json.simple.parser.JSONParser;
 //TODO: Find a way to display accents.
 //TODO: Javadoc
 //TODO: Singleton
+/**
+ * This class contains all the stations of the RER A.
+ * It is built by parsing a JSON file, which is by default at data/gare.json, but we can specify another path to the constructor.
+ * 
+ * @author Abadji Julien
+ *
+ */
 public class GareDataBase {
 	private HashMap<Integer, Gare> gares;
 	private String path = "data/gare.json";
@@ -21,7 +28,10 @@ public class GareDataBase {
 	}
 
 	
-	
+	/**
+	 * Populates the HashMap following the JSON's data.
+	 * @param file Path to the json file.
+	 */
 	private void loadJsonGare(String file){
 		JSONParser parser = new JSONParser();
 		 
@@ -52,6 +62,10 @@ public class GareDataBase {
 	public Gare getGare(int id){
 		return gares.get(id);
 	}
+	/**
+	 * Returns the GareDataBase object initialized.
+	 * @return The instance of the GareDataBase.
+	 */
 	public static GareDataBase getInstance(){
 		return INSTANCE;
 	}
