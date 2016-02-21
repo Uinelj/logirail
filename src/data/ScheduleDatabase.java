@@ -11,11 +11,15 @@ import java.util.Iterator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
+/**
+ * 
+ * @author Alexandre Fourgs
+ *
+ */
 public class ScheduleDatabase {
 	private HashMap<String, Schedule> schedulesDatabase = new HashMap<String, Schedule>();
-	
-	public ScheduleDatabase (){
+	private static ScheduleDatabase INSTANCE = new ScheduleDatabase();
+	private ScheduleDatabase (){
 		schedulesDatabase = schedulesParsing();
 	}
 	/**
@@ -68,11 +72,14 @@ public class ScheduleDatabase {
         return schedulesDatabase ;
 	}
 	
+	public static ScheduleDatabase getInstance(){
+		return INSTANCE;
+	}
 	public String toString() {
 		String scheduleDB = "";
 		
 		// TODO toString ScheduleDatabase
 		
-		return scheduleDB ;
+		return schedulesDatabase.toString();
 	}
 }
