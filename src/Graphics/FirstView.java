@@ -36,7 +36,7 @@ public class FirstView extends Application{
 	private JFXHamburger menu;
 	 private JFXSlider zoom;
 	 private Button test;
-	 
+
 	public static void main (String[] args){
 		Application.launch(FirstView.class,args);
 	}
@@ -57,17 +57,17 @@ public class FirstView extends Application{
 
 		primaryStage.titleProperty()
 				.bind(scene.widthProperty().asString().concat(" : ").concat(scene.heightProperty().asString()));
-		
-		
+
+
 		primaryStage.setScene(scene);
 		primaryStage.setMinWidth(1040);
 		primaryStage.setMinHeight(782);
 		primaryStage.setResizable(true);
 		primaryStage.sizeToScene();
 		primaryStage.show();
-		
 
-		  
+
+
 
 	}
 
