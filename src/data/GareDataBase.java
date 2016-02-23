@@ -32,7 +32,7 @@ public class GareDataBase {
 	 * Populates the HashMap following the JSON's data.
 	 * @param file Path to the json file.
 	 */
-	private void loadJsonGare(String file){
+	void loadJsonGare(String file){
 		JSONParser parser = new JSONParser();
 		 
         try {

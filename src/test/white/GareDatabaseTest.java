@@ -12,7 +12,7 @@ public class GareDatabaseTest {
 	 */
 	public static void main(String[] args) {
 		System.out.println("Test 1 : toString");
-		GareDataBase gare = new GareDataBase();
+		GareDataBase gare = GareDataBase.getInstance();
 		System.out.println("	"+gare.toString());
 	
 	}

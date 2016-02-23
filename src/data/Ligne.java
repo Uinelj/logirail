@@ -15,62 +15,62 @@ public class Ligne {
     }
     
     public void init_ligne(){
-    	GareDataBase db = new GareDataBase();
-    	db.LoadJsonGare("Gare.json");
+    	GareDataBase db = GareDataBase.getInstance();
+    	db.loadJsonGare("Gare.json");
 		Canton canton = new Canton(-1);
 
     	for(int i=0; i< 12; i++){
     		
-    		ligne.addVertex(db.getGares().get(i));
+    		ligne.addVertex(db.getGare(i));
     		if(i!=0){
-    			ligne.addEdge(canton, db.getGares().get(i));
+    			ligne.addEdge(canton, db.getGare(i));
     		}
     		canton = new Canton(i);
     		ligne.addVertex(canton);
-    		ligne.addEdge(db.getGares().get(i), canton);
+    		ligne.addEdge(db.getGare(i), canton);
     	}
     	
     	for(int i=19; i< 27; i++){
 
-    		ligne.addVertex(db.getGares().get(i));
-			ligne.addEdge(canton, db.getGares().get(i));
+    		ligne.addVertex(db.getGare(i));
+			ligne.addEdge(canton, db.getGare(i));
 
     		canton = new Canton(i);
     		ligne.addVertex(canton);
-    		ligne.addEdge(db.getGares().get(i), canton);
+    		ligne.addEdge(db.getGare(i), canton);
     	}
     	
     	for(int i=27; i< 36; i++){
 
-    		ligne.addVertex(db.getGares().get(i));
-			ligne.addEdge(canton, db.getGares().get(i));
+    		ligne.addVertex(db.getGare(i));
+			ligne.addEdge(canton, db.getGare(i));
 
     		canton = new Canton(i);
     		ligne.addVertex(canton);
-    		ligne.addEdge(db.getGares().get(i), canton);
+    		ligne.addEdge(db.getGare(i), canton);
     	}
     	canton = new Canton(100);
 		ligne.addVertex(canton);
-    	ligne.addEdge(db.getGares().get(26), canton);
+    	ligne.addEdge(db.getGare(26), canton);
     	for(int i=36; i< 47; i++){
-    		ligne.addVertex(db.getGares().get(i));
-    		ligne.addEdge(canton, db.getGares().get(i));
+    		ligne.addVertex(db.getGare(i));
+    		ligne.addEdge(canton, db.getGare(i));
 
     		canton = new Canton(i);
     		ligne.addVertex(canton);
-    		ligne.addEdge(db.getGares().get(i), canton);
+    		ligne.addEdge(db.getGare(i), canton);
     	}
     	
     	canton = new Canton(101);
 		ligne.addVertex(canton);
-    	ligne.addEdge(db.getGares().get(26), canton);
+    	ligne.addEdge(db.getGare(26), canton);
     	
     	for(int i=36; i< 47; i++){
-    		ligne.addVertex(db.getGares().get(i));
-    		ligne.addEdge(canton, db.getGares().get(i));
+    		ligne.addVertex(db.getGare(i));
+    		ligne.addEdge(canton, db.getGare(i));
     		canton = new Canton(i);
     		ligne.addVertex(canton);
-    		ligne.addEdge(db.getGares().get(i), canton);
+    		ligne.addEdge(db.getGare(i), canton);
     	}
     	
     	
