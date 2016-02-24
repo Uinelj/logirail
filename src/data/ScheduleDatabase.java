@@ -58,7 +58,7 @@ public class ScheduleDatabase {
 	           		DateFormat format = new SimpleDateFormat("hh:mm:ss");
 	           		Date date = format.parse(schedule);
 	            			
-	           		actual.getSchedules().add(date);
+	           		actual.getDates().add(date);
 	            			
 	           	}
 	           	schedulesDatabase.put(actualCode, actual);	
