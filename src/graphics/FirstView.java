@@ -1,4 +1,4 @@
-package Graphics;
+package graphics;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
