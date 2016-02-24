@@ -9,28 +9,29 @@ public class Canton {
 	
 
 	private int id;
-	/**
-	 * @param name
-	 * name of canton
-	 */
-	public Canton(int id){
-		this.setId(id);
+	private int lenght;
+	
+	
+	
+	public Canton(int id, int lenght){
+		this.id = id;
+		this.lenght = lenght;
 	}
 	
 	public int getId() {
 		return id;
 	}
 
+	public int getLenght(){
+		return lenght;
+	}
 
 	@Override
 	public String toString() {
 		return "Canton [id=" + id + "]";
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 
 
 }

@@ -17,7 +17,7 @@ public class Gare extends Canton{
 	 */
 	
 	public Gare(String name, int id){
-		super(id);
+		super(id, 0);
 		this.setId(id);
 		this.setName(name);
 	}

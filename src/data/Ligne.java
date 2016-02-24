@@ -1,99 +1,85 @@
 package data;
 
+import java.io.FileReader;
+import java.util.Iterator;
 
-import org.jgrapht.ext.JGraphModelAdapter;
-import org.jgrapht.graph.DefaultEdge;
-import org.jgrapht.graph.ListenableUndirectedGraph;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+
 
 public class Ligne {
-	 private ListenableUndirectedGraph ligne;
-	 private JGraphModelAdapter m_jgAdapter;
 
-   // private JGraphModelAdapter m_jgAdapter;
+	private  int[][] line;
+	private int size;
+	private String path="data/ligne.json";
+	
     public Ligne(){
-    	ligne = new ListenableUndirectedGraph(DefaultEdge.class);
+    	size = 89;
+    	line = new int[size][size];
+    	init();
+    	jSonLoad();
+    	affiche();
     }
     
-    public void init_ligne(){
-    	GareDataBase db = GareDataBase.getInstance();
-    	db.loadJsonGare("Gare.json");
-		Canton canton = new Canton(-1);
+    private void jSonLoad(){
+    	JSONParser parser = new JSONParser();
+		 
+        try {
+ 
+            Object obj = parser.parse(new FileReader(path));
+ 
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONArray lang = (JSONArray) jsonObject.get("line"); //why lang?
+    		JSONArray road;
 
-    	for(int i=0; i< 12; i++){
-    		
-    		ligne.addVertex(db.getGare(i));
-    		if(i!=0){
-    			ligne.addEdge(canton, db.getGare(i));
+            int in;
+            int out;
+            int actu=0;
+            Iterator it = lang.iterator();
+            while(it.hasNext()){
+            	JSONObject innerObj = (JSONObject) it.next();
+            	//System.out.println(innerObj);
+            	//Ugly, but the lib doesnt provide some way to get strings.
+            	in = Integer.parseInt((String) innerObj.get("in"));
+            	out = Integer.parseInt((String) innerObj.get("out"));
+				road = (JSONArray) innerObj.get("cantons");
+				actu = in;
+            	if (road != null) { 
+					   for (int i=0;i<road.size();i++){ 
+						line[actu][Integer.parseInt(road.get(i).toString())+45] = 1;
+						actu = Integer.parseInt(road.get(i).toString())+45;
+					   } 
+					   
+					   line[actu][out]=1;
+					}
+            	//gares.put(Integer.parseInt((String)innerObj.get("id")), new Gare(currentStationName, currentStationId));
+            }
+        	
+            	
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    private void init(){
+    	for(int i=0;i<size;i++){
+    		for(int j=0; j<size;j++){
+    			line[i][j]=0;
     		}
-    		canton = new Canton(i);
-    		ligne.addVertex(canton);
-    		ligne.addEdge(db.getGare(i), canton);
     	}
-    	
-    	for(int i=19; i< 27; i++){
-
-    		ligne.addVertex(db.getGare(i));
-			ligne.addEdge(canton, db.getGare(i));
-
-    		canton = new Canton(i);
-    		ligne.addVertex(canton);
-    		ligne.addEdge(db.getGare(i), canton);
-    	}
-    	
-    	for(int i=27; i< 36; i++){
-
-    		ligne.addVertex(db.getGare(i));
-			ligne.addEdge(canton, db.getGare(i));
-
-    		canton = new Canton(i);
-    		ligne.addVertex(canton);
-    		ligne.addEdge(db.getGare(i), canton);
-    	}
-    	canton = new Canton(100);
-		ligne.addVertex(canton);
-    	ligne.addEdge(db.getGare(26), canton);
-    	for(int i=36; i< 47; i++){
-    		ligne.addVertex(db.getGare(i));
-    		ligne.addEdge(canton, db.getGare(i));
-
-    		canton = new Canton(i);
-    		ligne.addVertex(canton);
-    		ligne.addEdge(db.getGare(i), canton);
-    	}
-    	
-    	canton = new Canton(101);
-		ligne.addVertex(canton);
-    	ligne.addEdge(db.getGare(26), canton);
-    	
-    	for(int i=36; i< 47; i++){
-    		ligne.addVertex(db.getGare(i));
-    		ligne.addEdge(canton, db.getGare(i));
-    		canton = new Canton(i);
-    		ligne.addVertex(canton);
-    		ligne.addEdge(db.getGare(i), canton);
-    	}
-    	
-    	
-    	
-    	
-    	
-    	System.out.println(ligne);
-    	
-    	
-    	
-    	
-    	
     }
-
     
-	public ListenableUndirectedGraph getLigne() {
-		return ligne;
-	}
-
-	public void setLigne(ListenableUndirectedGraph ligne) {
-		this.ligne = ligne;
-	}
-   
-
-
+    private void affiche(){
+    	for(int j=0;j<size;j++){
+			//System.out.print(j);
+    		for(int i=0; i<size;i++){
+    			//System.out.print(i);
+    			System.out.print(line[j][i]);
+    		}
+    		System.out.println();
+    	}
+    }
 }
