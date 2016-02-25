@@ -13,6 +13,8 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXSlider;
 
+import javafx.animation.Animation;
+import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +23,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.HLineTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -31,61 +38,68 @@ import javafx.scene.text.Font;
 public class FirstViewController implements Initializable {
 
     @FXML
+    private VBox mainWindow;
+
+    @FXML
     private AnchorPane mainView;
 
     @FXML
-    private JFXHamburger menu;
-    @FXML
-    private VBox mainWindow;
-    @FXML
-    private JFXSlider zoom;
+    private AnchorPane view;
 
     @FXML
-    private ImageView rer;
+    private JFXHamburger menu;
+
+    @FXML
+    private JFXCheckBox filtreTous;
+
+    @FXML
+    private JFXCheckBox filtreArrivee;
+
+    @FXML
+    private JFXCheckBox filtreDepart;
+
+    @FXML
+    private JFXCheckBox filtreIncident;
+
+    @FXML
+    private JFXCheckBox filtreRetard;
 
     @FXML
     private Font x3;
 
     @FXML
-    private Circle gare1;
-
-    @FXML
-    private JFXCheckBox filtreTous,filtreArrivee,filtreDepart,filtreRetard,filtreIncident;
-
-    @FXML
     private Color x4;
-
-    @FXML
-    void initialize() {
-        assert menu != null : "fx:id=\"menu\" was not injected: check your FXML file 'main.fxml'.";
-        assert zoom != null : "fx:id=\"zoom\" was not injected: check your FXML file 'main.fxml'.";
-        assert x3 != null : "fx:id=\"x3\" was not injected: check your FXML file 'main.fxml'.";
-        assert x4 != null : "fx:id=\"x4\" was not injected: check your FXML file 'main.fxml'.";
-
-       rer.fitWidthProperty().bind(mainWindow.widthProperty());
-       rer.fitHeightProperty().bind(mainWindow.heightProperty());
-
-    }
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 
-	        assert menu != null : "fx:id=\"menu\" was not injected: check your FXML file 'main.fxml'.";
-	        assert zoom != null : "fx:id=\"zoom\" was not injected: check your FXML file 'main.fxml'.";
-	        assert x3 != null : "fx:id=\"x3\" was not injected: check your FXML file 'main.fxml'.";
-	        assert x4 != null : "fx:id=\"x4\" was not injected: check your FXML file 'main.fxml'.";
+        assert mainWindow != null : "fx:id=\"mainWindow\" was not injected: check your FXML file 'main.fxml'.";
+        assert mainView != null : "fx:id=\"mainView\" was not injected: check your FXML file 'main.fxml'.";
+        assert view != null : "fx:id=\"view\" was not injected: check your FXML file 'main.fxml'.";
+        assert menu != null : "fx:id=\"menu\" was not injected: check your FXML file 'main.fxml'.";
+        assert filtreTous != null : "fx:id=\"filtreTous\" was not injected: check your FXML file 'main.fxml'.";
+        assert filtreArrivee != null : "fx:id=\"filtreArrivee\" was not injected: check your FXML file 'main.fxml'.";
+        assert filtreDepart != null : "fx:id=\"filtreDepart\" was not injected: check your FXML file 'main.fxml'.";
+        assert filtreIncident != null : "fx:id=\"filtreIncident\" was not injected: check your FXML file 'main.fxml'.";
+        assert filtreRetard != null : "fx:id=\"filtreRetard\" was not injected: check your FXML file 'main.fxml'.";
+        assert x3 != null : "fx:id=\"x3\" was not injected: check your FXML file 'main.fxml'.";
+        assert x4 != null : "fx:id=\"x4\" was not injected: check your FXML file 'main.fxml'.";
+
+        Rectangle train = new Rectangle(10,20,Color.LIGHTCORAL);
+        view.getChildren().add(train);
+
+        Path path = new Path();
+        path.getElements().addAll(new MoveTo(50, 50), new HLineTo(350));
+        path.setFill(null);
+        view.getChildren().add(path);
+
+        PathTransition pt = new PathTransition(Duration.millis(4000), path, train);
+        pt.setCycleCount(Animation.INDEFINITE);
+        pt.setAutoReverse(true);
+        pt.play();
 	}
 
 	public void filtre(ActionEvent e){
-
-		 if (filtreTous.isSelected()){
-		        filtreArrivee.setSelected(false);
-		        filtreDepart.setSelected(false);
-		        filtreRetard.setSelected(false);
-		        filtreIncident.setSelected(false);
-		    }
-
 	}
 
 	public void gare (ActionEvent e){

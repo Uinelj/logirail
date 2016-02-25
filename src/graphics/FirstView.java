@@ -32,10 +32,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class FirstView extends Application{
-	private Label h;
-	private JFXHamburger menu;
-	 private JFXSlider zoom;
-	 private Button test;
 
 	public static void main (String[] args){
 		Application.launch(FirstView.class,args);
