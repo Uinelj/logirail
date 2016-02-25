@@ -9,7 +9,7 @@ import engine.Clock;
  */
 public class ClockTest {
 	public static void main(String[] args) {
-		Clock clock = new Clock();
+		Clock clock = new Clock(1000);
 		clock.start();
 	}
 

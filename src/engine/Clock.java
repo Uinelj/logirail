@@ -33,12 +33,11 @@ public class Clock extends Thread {
 	 * Thread run function which increment the seconds.
 	 */
 	public void run() {
-		int i = 0 ;
-		while(i != 1){
+		while((time.get(Calendar.HOUR_OF_DAY)!=23) || (time.get(Calendar.MINUTE)!=59) || (time.get(Calendar.SECOND)!=59)){
 			try{
 				Thread.sleep(1000/speed);
 				time.add(Calendar.SECOND, 1);
-				System.out.println(time.getTime());
+				System.out.println(time.get(Calendar.HOUR_OF_DAY) + ":" + time.get(Calendar.MINUTE) + ":" + time.get(Calendar.SECOND));
 			}
 			catch(InterruptedException ie){
 				
