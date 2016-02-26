@@ -12,7 +12,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 /**
- * 
+ * Database of all schedules.
+ * The class is a Singleton class, because it manages data.
  * @author Alexandre Fourgs
  *
  */
@@ -71,7 +72,10 @@ public class ScheduleDatabase {
         
         return schedulesDatabase ;
 	}
-	
+	/**
+	 * Getter of the current initialized instance of ScheduleDatabase
+	 * @return the initialized instance of ScheduleDatabase
+	 */
 	public static ScheduleDatabase getInstance(){
 		return INSTANCE;
 	}

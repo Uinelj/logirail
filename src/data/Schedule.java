@@ -13,7 +13,10 @@ import java.util.ArrayList;
 public class Schedule {
 	private String missionCode;
 	private ArrayList<Date> dates = new ArrayList<Date>();
-	
+	/**
+	 * 
+	 * @param missionCode Missioncode to be scheduled
+	 */
 	public Schedule(String missionCode) {
 		this.missionCode = missionCode ;
 	}

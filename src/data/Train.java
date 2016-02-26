@@ -1,7 +1,7 @@
 package data;
 
 /**
- * Class Train : ...
+ * Representation of a running train on the line
  * @author AKTOR Alexis
  * 
  */
@@ -11,7 +11,12 @@ public class Train {
 	private MissionCode missionCode;
 	private String id;
 	
-	
+	/**
+	 * Constructor for the Train object
+	 * @param name ?
+	 * @param missionCode The mission code which will be affected to the train, ie. its road
+	 * @param id The unique ID of the train
+	 */
 	public Train(String name, MissionCode missionCode, String id){
 		this.setName(name);
 		this.setMissionCode(missionCode);
