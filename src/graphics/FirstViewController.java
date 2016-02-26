@@ -16,6 +16,7 @@ import com.jfoenix.controls.JFXSlider;
 import javafx.animation.Animation;
 import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -41,6 +42,9 @@ public class FirstViewController implements Initializable {
     private VBox mainWindow;
 
     @FXML
+    private Path all,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12;
+
+    @FXML
     private AnchorPane mainView;
 
     @FXML
@@ -50,25 +54,18 @@ public class FirstViewController implements Initializable {
     private JFXHamburger menu;
 
     @FXML
-    private JFXCheckBox filtreTous;
+    private JFXCheckBox filtreTous,filtreRetard,filtreArrivee,filtreDepart,filtreIncident;
 
-    @FXML
-    private JFXCheckBox filtreArrivee;
 
-    @FXML
-    private JFXCheckBox filtreDepart;
-
-    @FXML
-    private JFXCheckBox filtreIncident;
-
-    @FXML
-    private JFXCheckBox filtreRetard;
 
     @FXML
     private Font x3;
 
     @FXML
     private Color x4;
+
+    final Rectangle train = new Rectangle(20,10);
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -85,26 +82,37 @@ public class FirstViewController implements Initializable {
         assert x3 != null : "fx:id=\"x3\" was not injected: check your FXML file 'main.fxml'.";
         assert x4 != null : "fx:id=\"x4\" was not injected: check your FXML file 'main.fxml'.";
 
-        Rectangle train = new Rectangle(10,20,Color.LIGHTCORAL);
+        train.setFill(Color.web("#969696"));
+
         view.getChildren().add(train);
 
-        Path path = new Path();
-        path.getElements().addAll(new MoveTo(50, 50), new HLineTo(350));
-        path.setFill(null);
-        view.getChildren().add(path);
+//        Path path = new Path();
+//        path.getElements().addAll(new MoveTo(50, 50), new HLineTo(350));
+//        path.setFill(null);
+//        view.getChildren().add(path);
 
-        PathTransition pt = new PathTransition(Duration.millis(4000), path, train);
-        pt.setCycleCount(Animation.INDEFINITE);
-        pt.setAutoReverse(true);
-        pt.play();
+		  //TA1.setPath(A2);
+		 // TA1.play();
+launchTrain();
+launchTrain();
+	}
+
+
+	public void launchTrain(){
+		  PathTransition TA1 = new PathTransition(Duration.millis(1000), all, train);
+		  TA1.setCycleCount(10);
+		  TA1.setAutoReverse(true);
+		  TA1.setOnFinished(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent finishHim) {view.getChildren().remove(train); }
+			});
+		  TA1.play();
+
+		  TA1.setPath(A2);
+		  TA1.play();
 	}
 
 	public void filtre(ActionEvent e){
-	}
-
-	public void gare (ActionEvent e){
-
-		System.out.println("lolll");
 	}
 
 	}
