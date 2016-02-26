@@ -1,12 +1,11 @@
 package data;
 
 /**
- * Class Gare : ...
- * inherited from canton
+ * Represents a physical station, which is on the train line.
  * @author AKTOR Alexis
  * 
  */
-
+//TODO : Call this a station ?
 public class Gare extends Canton{
 	
 	private String name;

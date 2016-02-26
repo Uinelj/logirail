@@ -8,7 +8,12 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 
-
+/**
+ * Representation of the train line, a graph of stations.
+ * Built by parsing a JSON file, located in data/ligne.json.
+ * @author Alexandre Fourgs ?
+ *
+ */
 public class Ligne {
 
 	private  int[][] line;

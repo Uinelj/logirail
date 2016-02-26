@@ -1,10 +1,12 @@
 package data;
 
 /**
- * Class Canton : ...
+ * The representation of a physical block where the train can be. A Canton can either be a station, or just a rails block.
+ * Each block can have one train simultaneously inside.
  * @author AKTOR Alexis
  * 
  */
+//TODO: Rename to block ?
 public class Canton {
 	
 
