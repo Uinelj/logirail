@@ -91,10 +91,10 @@ public class FirstViewController implements Initializable {
 //        path.setFill(null);
 //        view.getChildren().add(path);
 
-
 		  //TA1.setPath(A2);
 		 // TA1.play();
-        launchTrain();
+launchTrain();
+launchTrain();
 	}
 
 
