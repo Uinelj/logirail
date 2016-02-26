@@ -14,7 +14,7 @@ public class MainJulien {
 		System.out.println(mcd.getMissionCode("ZEBU"));
 		System.out.println(mcd.getMissionCode("NAGA"));*/
 		GareDataBase gdb = GareDataBase.getInstance();
-		MissionCode tedi = mcd.getMissionCode("TEDI");
+		MissionCode tedi = mcd.getMissionCode("NAGA");
 		for(Integer i : tedi.getRoad()){
 			System.out.println(gdb.getGare(i).getName() + "\n");
 		}
