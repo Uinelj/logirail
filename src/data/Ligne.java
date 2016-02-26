@@ -87,4 +87,16 @@ public class Ligne {
     		System.out.println();
     	}
     }
+    
+    public int getMat(int in, int out){
+    	return line[in][out];
+    }
+    
+    public int[][] getMat(){
+    	return line;
+    }
+    
+    public int getSize(){
+    	return size;
+    }
 }
