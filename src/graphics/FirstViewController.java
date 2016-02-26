@@ -93,7 +93,7 @@ public class FirstViewController implements Initializable {
         path.setFill(null);
         view.getChildren().add(path);
 
-        PathTransition pt = new PathTransition(Duration.millis(4000), path, train);
+        PathTransition pt = new PathTransition(Duration.millis(40), path, train);
         pt.setCycleCount(Animation.INDEFINITE);
         pt.setAutoReverse(true);
         pt.play();

@@ -1,6 +1,7 @@
 package test.white;
 
-import engine.Clock;
+import data.Clock;
+import engine.ClockThread;
 
 /**
  * 
@@ -9,8 +10,22 @@ import engine.Clock;
  */
 public class ClockTest {
 	public static void main(String[] args) {
-		Clock clock = new Clock(1000);
-		clock.start();
+		Clock clock = new Clock();
+		ClockThread clockT = new ClockThread(clock);
+		clockT.start();
+		
+		while(clockT.isAlive()){
+			
+			if ((clock.getSecond()) == 10){
+				System.out.println("10 secondes !");
+				clockT.setSpeed(2);
+				try{
+					clockT.sleep(5*1000);
+				}
+				catch(InterruptedException ie){
+					
+				}
+			}
+		}	
 	}
-
 }
