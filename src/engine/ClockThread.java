@@ -15,6 +15,7 @@ public class ClockThread implements Runnable {
 	private Calendar time = Calendar.getInstance() ;
 	private Clock clock ;
 	
+	
 	/**
 	 * Constructor with basic speed (1).
 	 */
@@ -49,7 +50,7 @@ public class ClockThread implements Runnable {
 				time.add(Calendar.SECOND, 1);
 				clock.setClock(time.get(Calendar.HOUR_OF_DAY), time.get(Calendar.MINUTE), time.get(Calendar.SECOND));
 				
-				System.out.println(clock.toString());
+				//System.out.println(clock.toString());
 			}
 			catch(InterruptedException ie){
 				
