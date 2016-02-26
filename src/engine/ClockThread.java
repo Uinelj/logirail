@@ -10,7 +10,7 @@ import data.Clock;
  *	This class is the a basic clock's engine.
  *	It works with a thread.
  */
-public class ClockThread extends Thread {
+public class ClockThread implements Runnable {
 	private int speed ;
 	private Calendar time = Calendar.getInstance() ;
 	private Clock clock ;
@@ -40,15 +40,15 @@ public class ClockThread extends Thread {
 	 * Thread run function which increment the seconds and stop when it's 23:59:59.
 	 */
 	public void run() {
-		while((time.get(Calendar.HOUR_OF_DAY)!=23) || (time.get(Calendar.MINUTE)!=59) || (time.get(Calendar.SECOND)!=59)){
+		while(((time.get(Calendar.HOUR_OF_DAY)!=23) 
+				|| (time.get(Calendar.MINUTE)!=59) 
+				|| (time.get(Calendar.SECOND)!=59))
+				|| (!Thread.currentThread().isInterrupted())){
 			try{
 				Thread.sleep(1000/speed);
 				time.add(Calendar.SECOND, 1);
-				clock.setHour(time.get(Calendar.HOUR_OF_DAY));
-				clock.setMinute(time.get(Calendar.MINUTE));
-				clock.setSecond(time.get(Calendar.SECOND));
+				clock.setClock(time.get(Calendar.HOUR_OF_DAY), time.get(Calendar.MINUTE), time.get(Calendar.SECOND));
 				
-				//System.out.println(time.get(Calendar.HOUR_OF_DAY) + ":" + time.get(Calendar.MINUTE) + ":" + time.get(Calendar.SECOND));
 				System.out.println(clock.toString());
 			}
 			catch(InterruptedException ie){

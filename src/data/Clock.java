@@ -16,28 +16,34 @@ public class Clock {
 		this.second = 0 ;
 	}
 	
-	public int getHour(){
+	public synchronized int getHour(){
 		return hour ;
 	}
 	
-	public int getMinute(){
+	public synchronized int getMinute(){
 		return minute ;
 	}
 	
-	public int getSecond(){
+	public synchronized int getSecond(){
 		return second ;
 	}
 	
-	public void setHour(int hour){
+	private void setHour(int hour){
 		this.hour = hour ;
 	}
 	
-	public void setMinute(int minute){
+	private void setMinute(int minute){
 		this.minute = minute ;
 	}
 	
-	public void setSecond(int second){
+	private void setSecond(int second){
 		this.second = second ;
+	}
+	
+	public synchronized void setClock(int hour, int minute, int second){
+		setHour(hour);
+		setMinute(minute);
+		setSecond(second);
 	}
 	
 	public String toString(){

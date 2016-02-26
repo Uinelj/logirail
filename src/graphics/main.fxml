@@ -20,8 +20,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.ClosePath?>
-<?import javafx.scene.shape.CubicCurveTo?>
 <?import javafx.scene.shape.LineTo?>
 <?import javafx.scene.shape.MoveTo?>
 <?import javafx.scene.shape.Path?>
@@ -54,9 +52,9 @@
       <items>
         <AnchorPane fx:id="mainView" styleClass="white" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css">
           <children>
-                  <ScrollPane layoutY="4.0" styleClass="white" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="4.0">
+                  <ScrollPane layoutY="4.0" style="-fx-background-color: #FFFFFF;" styleClass="white" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="4.0">
                     <content>
-                      <AnchorPane fx:id="view" style="-fx-background-color: #FFFFFF;">
+                      <AnchorPane fx:id="view" style="-fx-background-color: #FFFFF;">
                            <children>
                               <Rectangle fill="#ec1d23" height="7.0" layoutX="22.0" layoutY="216.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="330.0" />
                               <Circle fill="WHITE" layoutX="22.0" layoutY="220.0" radius="9.0" stroke="#2c318f" strokeType="INSIDE" strokeWidth="2.0" />
@@ -340,19 +338,76 @@
                                     <Font name="Roboto" size="12.0" />
                                  </font>
                               </Text>
+                              <Path fx:id="all" fill="#0a91ff00" layoutX="20.0" layoutY="219.0" stroke="#00ff09" strokeType="INSIDE" strokeWidth="0.0">
+                                 <elements>
+                                    <MoveTo x="1150.0" y="147.0" />
+                                    <LineTo x="850.0" y="147.0" />
+                                    <MoveTo x="860.0" y="147.0" />
+                                    <LineTo x="745.0" y="72.0" />
+                                    <LineTo x="440.0" y="72.0" />
+                                    <MoveTo x="450.0" y="74.0" />
+                                    <LineTo x="330.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
                               <Text layoutX="1093.0" layoutY="429.0" rotate="-66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Boissy Saint-Léger" wrappingWidth="107.98866271972656">
                                  <font>
                                     <Font name="Roboto" size="12.0" />
                                  </font>
                               </Text>
-                              <Path fill="DODGERBLUE" layoutX="507.0" layoutY="373.0" stroke="BLACK" strokeType="INSIDE">
+                              <Path fx:id="A1" fill="DODGERBLUE" layoutX="21.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
                                   <elements>
-                                      <MoveTo x="100.0" />
-                                      <LineTo x="150.0" y="50.0" />
-                                      <ClosePath />
-                                    <LineTo />
-                                    <CubicCurveTo />
+                                      <MoveTo x="30.0" />
+                                      <LineTo />
                                   </elements>
+                              </Path>
+                              <Path fx:id="A2" fill="DODGERBLUE" layoutX="55.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A3" fill="DODGERBLUE" layoutX="94.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A4" fill="DODGERBLUE" layoutX="130.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A5" fill="DODGERBLUE" layoutX="170.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A6" fill="DODGERBLUE" layoutX="210.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="50.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A6" fill="DODGERBLUE" layoutX="265.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A7" fill="DODGERBLUE" layoutX="295.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A8" fill="DODGERBLUE" layoutX="322.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="165.0" y="73.0" />
+                                    <LineTo />
+                                 </elements>
                               </Path>
                            </children>
                         </AnchorPane>
