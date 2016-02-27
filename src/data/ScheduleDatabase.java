@@ -53,7 +53,6 @@ public class ScheduleDatabase {
             	
 	            schedulesNotParsed = (String)innerObj.get("schedules");
 	            		
-	           	// Parsing des horaires de départ séparer par le caractères ";"
 	           	for (String schedule : schedulesNotParsed.split(";")){
 	           		// Conversion de string en objet Date (UNIX).
 	           		DateFormat format = new SimpleDateFormat("hh:mm:ss");

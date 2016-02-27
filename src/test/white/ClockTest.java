@@ -15,7 +15,7 @@ public class ClockTest {
 		ClockThread clockR = new ClockThread(clock);
 		Thread clockT = new Thread(clockR);
 		clockT.start();
-		System.out.println("thread démarré");
+		System.out.println("thread demarre");
 		try {
 			System.out.println("Sleep 5 secondes");
 			clockT.sleep(5000);
