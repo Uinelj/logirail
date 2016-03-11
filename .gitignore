@@ -9,6 +9,7 @@ tmp/
 local.properties
 .settings/
 .loadpath
+./teamdoc/Note\ à\ propos\ de\ la\ soutenance
 
 # Eclipse Core
 .project
