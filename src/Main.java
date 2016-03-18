@@ -3,7 +3,7 @@ import data.MissionCode;
 import data.MissionCodeDatabase;
 import data.ScheduleDatabase;
 
-public class MainJulien {
+public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
