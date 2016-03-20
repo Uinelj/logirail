@@ -13,6 +13,8 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXSlider;
 
+import data.Clock;
+import engine.ClockThread;
 import javafx.animation.Animation;
 import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
@@ -42,7 +44,7 @@ public class FirstViewController implements Initializable {
     private VBox mainWindow;
 
     @FXML
-    private Path all,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12;
+    private Path all,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,ubal	;
 
     @FXML
     private AnchorPane mainView;
@@ -86,29 +88,22 @@ public class FirstViewController implements Initializable {
 
         view.getChildren().add(train);
 
-//        Path path = new Path();
-//        path.getElements().addAll(new MoveTo(50, 50), new HLineTo(350));
-//        path.setFill(null);
-//        view.getChildren().add(path);
+        launchTrain();
 
-		  //TA1.setPath(A2);
-		 // TA1.play();
-launchTrain();
-launchTrain();
-	}
+       	}
 
 
 	public void launchTrain(){
-		  PathTransition TA1 = new PathTransition(Duration.millis(1000), all, train);
-		  TA1.setCycleCount(10);
-		  TA1.setAutoReverse(true);
-		  TA1.setOnFinished(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent finishHim) {view.getChildren().remove(train); }
-			});
+		  PathTransition TA1 = new PathTransition(Duration.millis(1000), A1, train);
+		  TA1.setCycleCount(2);
+		  //TA1.setOnFinished(new EventHandler<ActionEvent>() {
+				//@Override
+				//public void handle(ActionEvent finishHim) {view.getChildren().remove(train); }
+			//});
 		  TA1.play();
-
+		  TA1.setNode(train);
 		  TA1.setPath(A2);
+		  System.out.println("breh");
 		  TA1.play();
 	}
 

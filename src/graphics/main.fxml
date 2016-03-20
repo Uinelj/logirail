@@ -48,13 +48,13 @@
         </Menu>
       </menus>
     </MenuBar>
-    <SplitPane dividerPositions="0.5" focusTraversable="true" orientation="VERTICAL" VBox.vgrow="ALWAYS">
+    <SplitPane dividerPositions="0.5" focusTraversable="true" orientation="VERTICAL" style="-fx-background-color: #FFFFFF;" VBox.vgrow="ALWAYS">
       <items>
-        <AnchorPane fx:id="mainView" styleClass="white" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css">
+        <AnchorPane fx:id="mainView" style="-fx-background-color: #FFFFFF;" styleClass="white" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css">
           <children>
                   <ScrollPane layoutY="4.0" style="-fx-background-color: #FFFFFF;" styleClass="white" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="4.0">
                     <content>
-                      <AnchorPane fx:id="view" style="-fx-background-color: #FFFFF;">
+                      <AnchorPane fx:id="view" style="-fx-background-color: #FFFFFF;" styleClass="white">
                            <children>
                               <Rectangle fill="#ec1d23" height="7.0" layoutX="22.0" layoutY="216.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="330.0" />
                               <Circle fill="WHITE" layoutX="22.0" layoutY="220.0" radius="9.0" stroke="#2c318f" strokeType="INSIDE" strokeWidth="2.0" />
@@ -338,11 +338,10 @@
                                     <Font name="Roboto" size="12.0" />
                                  </font>
                               </Text>
-                              <Path fx:id="all" fill="#0a91ff00" layoutX="20.0" layoutY="219.0" stroke="#00ff09" strokeType="INSIDE" strokeWidth="0.0">
+                              <Path fx:id="all" fill="#0a99ff00" layoutX="20.0" layoutY="219.0" stroke="#00ff09" strokeType="INSIDE" strokeWidth="0.0">
                                  <elements>
                                     <MoveTo x="1150.0" y="147.0" />
                                     <LineTo x="850.0" y="147.0" />
-                                    <MoveTo x="860.0" y="147.0" />
                                     <LineTo x="745.0" y="72.0" />
                                     <LineTo x="440.0" y="72.0" />
                                     <MoveTo x="450.0" y="74.0" />
@@ -357,14 +356,14 @@
                               </Text>
                               <Path fx:id="A1" fill="DODGERBLUE" layoutX="21.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
                                   <elements>
-                                      <MoveTo x="30.0" />
-                                      <LineTo />
+                                      <MoveTo />
+                                      <LineTo x="30.0" />
                                   </elements>
                               </Path>
                               <Path fx:id="A2" fill="DODGERBLUE" layoutX="55.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
                                  <elements>
-                                    <MoveTo x="30.0" />
-                                    <LineTo />
+                                    <MoveTo />
+                                    <LineTo x="30.0" />
                                  </elements>
                               </Path>
                               <Path fx:id="A3" fill="DODGERBLUE" layoutX="94.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
@@ -406,6 +405,58 @@
                               <Path fx:id="A8" fill="DODGERBLUE" layoutX="322.0" layoutY="219.0" stroke="BLACK" strokeType="INSIDE">
                                  <elements>
                                     <MoveTo x="165.0" y="73.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="ubal" fill="#0a99ff00" layoutX="30.0" layoutY="219.0" stroke="#00ff09" strokeType="INSIDE" strokeWidth="0.0">
+                                 <elements>
+                                    <MoveTo x="680.0" y="70.0" />
+                                    <LineTo x="690.0" y="72.0" />
+                                    <LineTo x="440.0" y="72.0" />
+                                    <MoveTo x="450.0" y="74.0" />
+                                    <LineTo x="330.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A10" fill="DODGERBLUE" layoutX="480.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A11" fill="DODGERBLUE" layoutX="520.0" layoutY="293.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A12" fill="DODGERBLUE" layoutX="560.0" layoutY="293.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A13" fill="DODGERBLUE" layoutX="605.0" layoutY="293.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A14" fill="DODGERBLUE" layoutX="640.0" layoutY="293.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A15" fill="DODGERBLUE" layoutX="680.0" layoutY="293.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
+                                    <LineTo />
+                                 </elements>
+                              </Path>
+                              <Path fx:id="A16" fill="DODGERBLUE" layoutX="720.0" layoutY="293.0" stroke="BLACK" strokeType="INSIDE">
+                                 <elements>
+                                    <MoveTo x="30.0" />
                                     <LineTo />
                                  </elements>
                               </Path>
@@ -455,8 +506,8 @@
                      <children>
                         <GridPane layoutX="1.0" layoutY="3.0" prefHeight="138.0" prefWidth="318.0">
                           <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="198.0" minWidth="10.0" prefWidth="176.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="142.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="114.0" prefWidth="116.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="202.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="20.0" prefHeight="50.0" vgrow="SOMETIMES" />
@@ -490,12 +541,32 @@
                                     <Font name="Roboto Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="195.0" style="&#10;" text="  Gare de départ : " textFill="#535353" GridPane.rowIndex="4">
+                              <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="120.0" style="&#10;" textFill="#535353" GridPane.rowIndex="4">
                                  <font>
                                     <Font name="Roboto Bold" size="14.0" />
                                  </font>
                               </Label>
                               <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="195.0" style="&#10;" text="  Modèle du train :" textFill="#535353" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Roboto Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="107.0" style="&#10;" text="UBAL" textFill="#535353" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Roboto Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="107.0" style="&#10;" text="Nation" textFill="#535353" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Roboto Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="107.0" style="&#10;" text="Cergy le Haut" textFill="#535353" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Roboto Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="107.0" style="&#10;" text="MI2N" textFill="#535353" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                  <font>
                                     <Font name="Roboto Bold" size="14.0" />
                                  </font>
