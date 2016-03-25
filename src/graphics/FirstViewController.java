@@ -7,6 +7,8 @@ package graphics;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
@@ -17,10 +19,13 @@ import data.Clock;
 import engine.ClockThread;
 import javafx.animation.Animation;
 import javafx.animation.PathTransition;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -58,7 +63,8 @@ public class FirstViewController implements Initializable {
     @FXML
     private JFXCheckBox filtreTous,filtreRetard,filtreArrivee,filtreDepart,filtreIncident;
 
-
+    @FXML
+    private Label hour,min,sec;
 
     @FXML
     private Font x3;
@@ -67,6 +73,7 @@ public class FirstViewController implements Initializable {
     private Color x4;
 
     final Rectangle train = new Rectangle(20,10);
+    private Clock clock = new Clock();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -88,10 +95,34 @@ public class FirstViewController implements Initializable {
 
         view.getChildren().add(train);
 
-        launchTrain();
+		ClockThread clockR = new ClockThread(2, clock);
+		Thread clockT = new Thread(clockR);
+		clockT.start();
+		System.out.println("thread demarre");
+        //launchTrain();
+		  Timer timer = new Timer(true); //set it as a deamon
+		     timer.schedule(new changeTime(), 0, 200);
 
        	}
 
+	public class changeTime extends TimerTask{
+	    @Override
+	    public void run() {
+
+	        Platform.runLater(() -> {
+	    		hour.setText("0"+String.valueOf(clock.getHour()));
+	    		min.setText("0"+String.valueOf(clock.getMinute()));
+	    		sec.setText(String.valueOf(clock.getSecond()));
+	        });
+
+	    }
+	}
+
+	public void changeTime(){
+		hour.setText(String.valueOf(clock.getHour()));
+		min.setText(String.valueOf(clock.getMinute()));
+		sec.setText(String.valueOf(clock.getSecond()));
+	}
 
 	public void launchTrain(){
 		  PathTransition TA1 = new PathTransition(Duration.millis(1000), A1, train);
@@ -109,6 +140,7 @@ public class FirstViewController implements Initializable {
 
 	public void filtre(ActionEvent e){
 	}
+
 
 	}
 

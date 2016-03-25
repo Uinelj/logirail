@@ -460,6 +460,26 @@
                                     <LineTo />
                                  </elements>
                               </Path>
+                              <Label fx:id="hour" layoutX="546.0" layoutY="28.0" text="00" textFill="#000000b4" AnchorPane.topAnchor="28.0">
+                                 <font>
+                                    <Font name="Roboto Bold" size="54.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="607.0" layoutY="24.0" text=":" textFill="#000000b4">
+                                 <font>
+                                    <Font name="Roboto Bold" size="54.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="min" layoutX="624.0" layoutY="28.0" text="00" textFill="#000000b4">
+                                 <font>
+                                    <Font name="Roboto" size="54.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="sec" layoutX="687.0" layoutY="54.0" text="00" textFill="#000000b4">
+                                 <font>
+                                    <Font name="Roboto" size="23.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                     </content>
