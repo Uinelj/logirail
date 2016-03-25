@@ -1,6 +1,7 @@
 package data;
 
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.json.simple.JSONArray;
@@ -15,16 +16,23 @@ import org.json.simple.parser.JSONParser;
  *
  */
 public class Ligne {
-
+	
 	private  int[][] line;
+	private ArrayList<Canton> cantons;
 	private int size;
 	private String path="data/ligne.json";
+	private GareDataBase gareDataBase;
+	private CantonDataBase cantonDataBase;
 	
-    public Ligne(){
-    	size = 89;
+    public Ligne(GareDataBase gareDataBase, CantonDataBase cantonDataBase){
+    	this.setCantonDataBase(cantonDataBase);
+    	this.setGareDataBase(gareDataBase);
+    	size = 100;
     	line = new int[size][size];
+    	cantons = new ArrayList<Canton>();
     	init();
     	jSonLoad();
+    	reverse();
     	affiche();
     }
     
@@ -99,4 +107,31 @@ public class Ligne {
     public int getSize(){
     	return size;
     }
+    
+    private void reverse(){
+    	for(int i=0; i<size;i++){
+    		for(int j=0;j<size;j++){
+    			if(line[i][j] == 1){
+    				line[j][i]=1;
+    			}
+    		}
+    	}
+    }
+
+    
+    public GareDataBase getGareDataBase() {
+		return gareDataBase;
+	}
+
+	public void setGareDataBase(GareDataBase gareDataBase) {
+		this.gareDataBase = gareDataBase;
+	}
+
+	public CantonDataBase getCantonDataBase() {
+		return cantonDataBase;
+	}
+
+	public void setCantonDataBase(CantonDataBase cantonDataBase) {
+		this.cantonDataBase = cantonDataBase;
+	}
 }

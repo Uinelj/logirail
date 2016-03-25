@@ -20,7 +20,7 @@ import org.json.simple.parser.JSONParser;
  */
 public class CantonDataBase {
 	private HashMap<Integer, Canton> cantons;
-	private String path = "data/gare.json";
+	private String path = "data/cantons.json";
 	private static CantonDataBase INSTANCE = new CantonDataBase();
 	private CantonDataBase(){
 		this.cantons = new HashMap<Integer, Canton>();

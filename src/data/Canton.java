@@ -10,9 +10,16 @@ package data;
 public class Canton {
 	
 
+	/**
+	 * @param id of the train
+	 * @param size of the train
+	 * @param give the state of the canton ( true : the canton is occupied, false : the canton is not occupied )
+	 */
+	
 	private int id;
 	private int lenght;
-	
+	private boolean occupyingTrain;
+
 	
 	
 	public Canton(int id, int lenght){
@@ -31,6 +38,33 @@ public class Canton {
 	@Override
 	public String toString() {
 		return "Canton [id=" + id + "]";
+	}
+	
+	/**
+	 * Decide if the train can enter in a canton
+	 * @param Train
+	 */
+	public synchronized void enter(Train train) throws InterruptedException {
+		
+		if(occupyingTrain == true){
+			System.out.println("no train");
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		occupyingTrain=true;
+		train.setPosition();
+	}
+
+	/**
+	 * released a canton
+	 */
+	public synchronized void exit() {
+		occupyingTrain = false;
+		notify();
 	}
 
 	
