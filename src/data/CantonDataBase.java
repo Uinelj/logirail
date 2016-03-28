@@ -30,7 +30,7 @@ public class CantonDataBase {
 	
 	/**
 	 * Populates the HashMap following the JSON's data.
-	 * @param file Path to the json file.
+	 * @param file Path to the JSON file.
 	 */
 	void loadJsonGare(String file){
 		JSONParser parser = new JSONParser();

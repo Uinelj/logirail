@@ -7,6 +7,8 @@ package data;
  * 
  */
 //TODO: Rename to block ?
+//TODO: Replace lenght by length
+//TODO: Replace occupyingTrain by something more meaningful, ie. isOccupied ?
 public class Canton {
 	
 
@@ -41,8 +43,9 @@ public class Canton {
 	}
 	
 	/**
-	 * Decide if the train can enter in a canton
-	 * @param Train
+	 * Decide if a train can enter in a canton (ie. if the Canton is empty)
+	 * @param Train the train to eventually enter into the Canton
+	 * @throws InterruptedException ALEXIS JE METS QUOI ICI?
 	 */
 	public synchronized void enter(Train train) throws InterruptedException {
 		
@@ -60,7 +63,7 @@ public class Canton {
 	}
 
 	/**
-	 * released a canton
+	 * Empty the Canton. Called when a train exits a canton
 	 */
 	public synchronized void exit() {
 		occupyingTrain = false;
