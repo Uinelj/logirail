@@ -1,0 +1,34 @@
+{
+	"Incident": [
+		{
+			"Type":"Person Incident",
+			"Id":"1", 
+			"Min_Time":"30",
+			"Max_Time":"120"
+		},
+		{
+			"Type":"Faint", 
+			"Id":"2", 
+			"Min_Time":"15",
+			"Max_Time":"45"
+		},
+		{
+			"Type":"Technical Problem",
+			"Id":"3",  
+			"Min_Time":"20",
+			"Max_Time":"60"
+		},
+		{
+			"Type":"Breakdown",
+			"Id":"4",  
+			"Min_Time":"20",
+			"Max_Time":"90"
+		},
+		{
+			"Type":"Other",
+			"Id":"5",  
+			"Min_Time":"5",
+			"Max_Time":"25"
+		}
+	]
+}
