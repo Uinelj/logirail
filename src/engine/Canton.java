@@ -1,4 +1,4 @@
-package data;
+package engine;
 
 /**
  * The representation of a physical block where the train can be. A Canton can either be a station, or just a rails block.

@@ -1,5 +1,7 @@
 package data;
 
+import engine.Canton;
+
 /**
  * Represents a physical station, which is on the train line
  * @author AKTOR Alexis

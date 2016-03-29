@@ -8,6 +8,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import engine.Canton;
+
 
 /**
  * Representation of the train line by a graph of stations.
