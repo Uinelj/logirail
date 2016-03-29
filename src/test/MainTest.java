@@ -2,10 +2,10 @@ package test;
 
 import data.Canton;
 import data.CantonDataBase;
-import data.GareDataBase;
-import data.Ligne;
+import data.Line;
 import data.MissionCode;
 import data.MissionCodeDatabase;
+import data.StationDataBase;
 import data.Train;
 
 public class MainTest {
@@ -16,10 +16,10 @@ public class MainTest {
 	public static void main(String[] args) {
 		// Test
 		
-		GareDataBase gareDataBase=GareDataBase.getInstance();
+		StationDataBase gareDataBase=StationDataBase.getInstance();
 		CantonDataBase cantonDataBase = CantonDataBase.getInstance();
 		MissionCodeDatabase missionDb= MissionCodeDatabase.getInstance();
-		Ligne ligne = new Ligne(gareDataBase, cantonDataBase);
+		Line ligne = new Line(gareDataBase, cantonDataBase);
 		
 		Train train = new Train("trainTest", missionDb.getMissionCode("TEDI"), 1,ligne);
 		

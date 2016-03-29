@@ -1,7 +1,3 @@
-import data.GareDataBase;
-import data.MissionCode;
-import data.MissionCodeDatabase;
-import data.ScheduleDatabase;
 
 public class MainSamer {
 

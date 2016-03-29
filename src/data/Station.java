@@ -6,7 +6,7 @@ package data;
  * 
  */
 //TODO : Call this a station ?
-public class Gare extends Canton{
+public class Station extends Canton{
 	
 	private String name;
 	private int id;
@@ -17,7 +17,7 @@ public class Gare extends Canton{
 	 * @param name Real name of the station
 	 * @param id ID of the station, following the data folder
 	 * */
-	public Gare(String name, int id){
+	public Station(String name, int id){
 		super(id, 0);
 		this.setId(id);
 		this.setName(name);

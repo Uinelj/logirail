@@ -14,7 +14,7 @@ public class Train {
 	private int id;
 	private Boolean end;
 	private int position;
-	private Ligne ligne;
+	private Line line;
 	private int posCode;
 	private ArrayList<Integer> path;
 	
@@ -26,8 +26,8 @@ public class Train {
 	 * @param ligne graph of the line
 	 */
 	
-	public Train(String name, MissionCode missionCode, int id,Ligne line){
-		this.ligne = line;
+	public Train(String name, MissionCode missionCode, int id,Line line){
+		this.line = line;
 		this.setName(name);
 		this.setMissionCode(missionCode);
 		this.setId(id);
@@ -75,7 +75,7 @@ public class Train {
 			
 			if(isCanton(position)){
 				currentCanton = new Canton(0, 0);
-				currentCanton = ligne.getCantonDataBase().getGare(1);
+				currentCanton = line.getCantonDataBase().getGare(1);
 
 				currentCanton.enter(this);
 				Thread.sleep(200);
@@ -87,8 +87,8 @@ public class Train {
 			
 			else{
 				System.out.println("gare");
-				currentGare = new Gare("", 0);
-				currentGare = ligne.getGareDataBase().getGare(position);
+				currentGare = new Station("", 0);
+				currentGare = line.getGareDataBase().getGare(position);
 				currentGare.enter(this);
 				currentGare.exit();
 
@@ -120,7 +120,7 @@ public class Train {
 		/*if the size of the path is 3, the train is in a canton*/
 		
 		else if(path.size()==3){
-			System.out.println(ligne.getGareDataBase().getGare(position).getName());
+			System.out.println(line.getGareDataBase().getGare(position).getName());
 			
 			position = path.get(1);
 
@@ -218,8 +218,8 @@ public class Train {
 		
 		ArrayList<Integer> nextPos = new ArrayList<Integer>();
 		
-		for(int i=0;i<ligne.getSize();i++){
-			if(ligne.getMat(index, i) == 1){
+		for(int i=0;i<line.getSize();i++){
+			if(line.getMat(index, i) == 1){
 				nextPos.add(i);
 			}
 		}

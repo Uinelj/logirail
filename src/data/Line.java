@@ -15,13 +15,13 @@ import org.json.simple.parser.JSONParser;
  * @author Alexandre Fourgs ?
  *
  */
-public class Ligne {
+public class Line {
 	
 	private  int[][] line;
 	private ArrayList<Canton> cantons;
 	private int size;
 	private String path="data/ligne.json";
-	private GareDataBase gareDataBase;
+	private StationDataBase gareDataBase;
 	private CantonDataBase cantonDataBase;
 	/**
 	 * Creates a new Ligne (line), following a set of Gare and a set of Canton.
@@ -29,7 +29,7 @@ public class Ligne {
 	 * @param gareDataBase database of Gare to be used
 	 * @param cantonDataBase database of Canton to be used
 	 * */
-    public Ligne(GareDataBase gareDataBase, CantonDataBase cantonDataBase){
+    public Line(StationDataBase stationDataBase, CantonDataBase cantonDataBase){
     	this.setCantonDataBase(cantonDataBase);
     	this.setGareDataBase(gareDataBase);
     	size = 100;
@@ -151,11 +151,11 @@ public class Ligne {
     }
 
     
-    public GareDataBase getGareDataBase() {
+    public StationDataBase getGareDataBase() {
 		return gareDataBase;
 	}
 
-	public void setGareDataBase(GareDataBase gareDataBase) {
+	public void setGareDataBase(StationDataBase gareDataBase) {
 		this.gareDataBase = gareDataBase;
 	}
 
