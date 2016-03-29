@@ -10,7 +10,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 /**
- * This class contains all differents type of incident that can arrive.
+ * This class contains all different types of incidents that can arrive.
  *  
  * @author Alexandre Fourgs
  *
@@ -24,7 +24,7 @@ public class IncidentDatabase {
 	}
 	
 	/**
-	 * This method parse the .json file of incident and create it.
+	 * Parses the .json file of incident and create a HashMap containing parsed data.
 	 * 
 	 * @return a HashMap object that contains all types of incident & informations about it.
 	 * 

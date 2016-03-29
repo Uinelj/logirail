@@ -19,7 +19,7 @@ public class Train {
 	private ArrayList<Integer> path;
 	
 	/**
-	 * 
+	 * Builds a new Train which will be used by the simulation
 	 * @param name name of the path to load the data
 	 * @param missionCode the MissionCode that the train follow
 	 * @param id id of the train
@@ -62,7 +62,10 @@ public class Train {
 	public void setId(int id2) {
 		this.id = id2;
 	}
-	
+	/**
+	 * Starts the train thread. 
+	 * @throws InterruptedException if the train is stopped
+	 * */
 	public void start() throws InterruptedException{
 		Canton currentCanton;
 		Canton currentGare;
@@ -95,7 +98,7 @@ public class Train {
 	}
 	
 	/**
-	 * set the next position of the train
+	 * sets the next position of the train
 	 */
 	public void setPosition(){
 		
@@ -188,10 +191,15 @@ public class Train {
 	}
 	
 	/**
-	 * 
+	 * Checks if a given ID is relevant to a Gare or a Canton
 	 * @param id id of a canton
 	 * @return a boolean to say if it's a canton or a station
 	 */
+	/*
+	 * TODO: ALEXIS C'est pas une bonne facon de faire : 
+	 * Si on change les id ou qu'on ajoute des gares on pourrait obtenir des fausse informations.
+	 * Mieux : Chopper l'id, construire le canton, et en utilisant la reflexivite on peut savoir si l'objet est de type Gare ou pas. 
+	 * */
 	public Boolean isCanton(int id){
     	if(id >45)
     		return true;
@@ -200,9 +208,9 @@ public class Train {
     }
 	
 	/**
-	 * 
+	 * Alexis je comprends pas :(
 	 * @param pos state position
-	 * @return ArrayList wich contains all of next edges linked with the state
+	 * @return ArrayList which contains all of next edges linked with the state
 	 */
 	
 	public ArrayList<Integer> nextIs(int pos){

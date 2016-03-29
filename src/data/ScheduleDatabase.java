@@ -26,7 +26,7 @@ public class ScheduleDatabase {
 	/**
 	 * 
 	 * @return a HashMap of all schedules for every mission.
-	 * This method parse the schedules JSON file, and create an object "Schedule" for all of them.
+	 * This method parses the schedules JSON file, and create an object "Schedule" for all of them.
 	 * Then, it put this object into an ArrayList and return it.
 	 * 
 	 */

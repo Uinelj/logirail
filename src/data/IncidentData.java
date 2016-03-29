@@ -1,5 +1,5 @@
 package data;
-
+//TODO: Basic documentation
 public class IncidentData {
 	private int id ;
 	private String type ;

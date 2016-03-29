@@ -10,7 +10,7 @@ import org.json.simple.parser.JSONParser;
 
 
 /**
- * Representation of the train line, a graph of stations.
+ * Representation of the train line by a graph of stations.
  * Built by parsing a JSON file, located in data/ligne.json.
  * @author Alexandre Fourgs ?
  *
@@ -23,7 +23,12 @@ public class Ligne {
 	private String path="data/ligne.json";
 	private GareDataBase gareDataBase;
 	private CantonDataBase cantonDataBase;
-	
+	/**
+	 * Creates a new Ligne (line), following a set of Gare and a set of Canton.
+	 * 
+	 * @param gareDataBase database of Gare to be used
+	 * @param cantonDataBase database of Canton to be used
+	 * */
     public Ligne(GareDataBase gareDataBase, CantonDataBase cantonDataBase){
     	this.setCantonDataBase(cantonDataBase);
     	this.setGareDataBase(gareDataBase);
@@ -35,7 +40,10 @@ public class Ligne {
     	reverse();
     	affiche();
     }
-    
+    /**
+     * Parses the JSON following the path attribute of the class, and loads it onto I don't know.
+     * */
+    //TODO: ALEX Commente un peu l'algo please, je sais pas ou vont les donnees parsees.
     private void jSonLoad(){
     	JSONParser parser = new JSONParser();
 		 
@@ -76,15 +84,24 @@ public class Ligne {
         }
     }
     
-    
+    /**
+     * Initializes at 0 the line adjacency matrix.
+     * */
+    //Si la ligne que j'ai c/c fonctionne aussi bien, peut etre tej cette méthode ?
     private void init(){
-    	for(int i=0;i<size;i++){
+    	/*for(int i=0;i<size;i++){
     		for(int j=0; j<size;j++){
     			line[i][j]=0;
     		}
-    	}
+    	}*/
+    	//Shorter way to initialize a 0-filled array.
+    	//See http://stackoverflow.com/questions/2154251/any-shortcut-to-initialize-all-array-elements-to-zero
+    	int line[][] = new int[size][size];
     }
-    
+    /**
+     * Prints the adjacency matrix.
+     * */
+    //TODO: ALEX virer ça aussi ? Ou c'est utilise dans le programme ?
     private void affiche(){
     	for(int j=0;j<size;j++){
 			//System.out.print(j);
@@ -95,19 +112,34 @@ public class Ligne {
     		System.out.println();
     	}
     }
-    
+    /**
+     * Returns a specific value from the transition matrix
+     * 
+     * @param in Where the train comes in
+     * @param out Where the train comes out
+     * */
     public int getMat(int in, int out){
     	return line[in][out];
     }
-    
+    /**
+     * Returns the whole transition matrix
+     * 
+     * @return line the transition matrix
+     * */
     public int[][] getMat(){
     	return line;
     }
-    
+    /**
+     * returns the size of the matrix, either height or width
+     * 
+     * @return size the width/height of the square transition matrix
+     * */
     public int getSize(){
     	return size;
     }
-    
+    /**
+     * Reverses the transition matrix, by replacing all the zeroes by ones and vice versa
+     * */
     private void reverse(){
     	for(int i=0; i<size;i++){
     		for(int j=0;j<size;j++){

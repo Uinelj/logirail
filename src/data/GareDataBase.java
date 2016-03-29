@@ -58,7 +58,11 @@ public class GareDataBase {
             e.printStackTrace();
         }
 	}
-
+	/**
+	 * Returns a specific Gare following its id
+	 * 
+	 * @param id unique id of the Gare
+	 * */
 	public Gare getGare(int id){
 		return gares.get(id);
 	}
