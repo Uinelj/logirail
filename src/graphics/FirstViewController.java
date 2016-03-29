@@ -67,6 +67,9 @@ public class FirstViewController implements Initializable {
     private Label hour,min,sec;
 
     @FXML
+    private JFXButton x1,x2,x5;
+
+    @FXML
     private Font x3;
 
     @FXML
@@ -74,7 +77,7 @@ public class FirstViewController implements Initializable {
 
     final Rectangle train = new Rectangle(20,10);
     private Clock clock = new Clock();
-
+    private ClockThread clockR = new ClockThread(1, clock);
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -95,7 +98,7 @@ public class FirstViewController implements Initializable {
 
         view.getChildren().add(train);
 
-		ClockThread clockR = new ClockThread(2, clock);
+
 		Thread clockT = new Thread(clockR);
 		clockT.start();
 		System.out.println("thread demarre");
@@ -141,6 +144,21 @@ public class FirstViewController implements Initializable {
 	public void filtre(ActionEvent e){
 	}
 
+	public void buttonTimex1(ActionEvent e){
+		 System.out.println("Vitesse normale");
+		 clockR.setSpeed(1);
+
+	}
+	public void buttonTimex2(ActionEvent e){
+		 System.out.println("Vitesse 2");
+		 clockR.setSpeed(2);
+
+	}
+	public void buttonTimex5(ActionEvent e){
+		 System.out.println("Vitesse 5");
+		 clockR.setSpeed(5);
+
+	}
 
 	}
 
