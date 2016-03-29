@@ -28,7 +28,7 @@ public class Line {
 	/**
 	 * Creates a new Ligne (line), following a set of Gare and a set of Canton.
 	 * 
-	 * @param gareDataBase database of Gare to be used
+	 * @param gareDataBase database of Station to be used
 	 * @param cantonDataBase database of Canton to be used
 	 * */
     public Line(StationDataBase stationDataBase, CantonDataBase cantonDataBase){
@@ -57,25 +57,27 @@ public class Line {
             JSONArray lang = (JSONArray) jsonObject.get("line"); //why lang?
     		JSONArray road;
 
-            int in;
-            int out;
+            int in;//ensemble de départ dans la matrice
+            int out;//ensemble d'arrivée dans la matrice
             int actu=0;
             Iterator it = lang.iterator();
             while(it.hasNext()){
             	JSONObject innerObj = (JSONObject) it.next();
             	//System.out.println(innerObj);
             	//Ugly, but the lib doesnt provide some way to get strings.
+            	
             	in = Integer.parseInt((String) innerObj.get("in"));
             	out = Integer.parseInt((String) innerObj.get("out"));
-				road = (JSONArray) innerObj.get("cantons");
+				road = (JSONArray) innerObj.get("cantons");//ensemble de tout les cantons entre deux gares
 				actu = in;
+				/*ajoute des cantons dans le graphe*/
             	if (road != null) { 
 					   for (int i=0;i<road.size();i++){ 
 						line[actu][Integer.parseInt(road.get(i).toString())+45] = 1;
 						actu = Integer.parseInt(road.get(i).toString())+45;
 					   } 
 					   
-					   line[actu][out]=1;
+					   line[actu][out]=1;//ajout de la gare dans le graphe
 					}
             	//gares.put(Integer.parseInt((String)innerObj.get("id")), new Gare(currentStationName, currentStationId));
             }

@@ -21,7 +21,7 @@ public class Station extends Canton{
 	 * */
 	public Station(String name, int id){
 		super(id, 0);
-		this.setId(id);
+		this.id = id;
 		this.setName(name);
 	}
 
@@ -41,14 +41,6 @@ public class Station extends Canton{
 	public int getId(){
 		return id;
 	}
-	//TODO: Virer cette fonction ? Elle est dangeureuse, dans le sens ou du coup tu peux changer l'ID d'une gare, sans changer son nom.
-	/**
-	 * @param id new id of the station
-	 * */
-	public void setId(int id){
-		this.id = id;
-	}
-
 
 	/**
 	 * @return the name of the station

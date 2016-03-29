@@ -205,6 +205,7 @@ public class Train {
 	 * Mieux : Chopper l'id, construire le canton, et en utilisant la reflexivite on peut savoir si l'objet est de type Gare ou pas. 
 	 * */
 	public Boolean isCanton(int id){
+
     	if(id >45)
     		return true;
     	else 

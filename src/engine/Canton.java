@@ -7,8 +7,6 @@ package engine;
  * 
  */
 //TODO: Rename to block ?
-//TODO: Replace lenght by length
-//TODO: Replace occupyingTrain by something more meaningful, ie. isOccupied ?
 public class Canton {
 	
 	//TODO: ALEXIS Refais ta doc please
@@ -19,24 +17,24 @@ public class Canton {
 	 */
 	
 	private int id;
-	private int lenght;
-	private boolean occupyingTrain;
+	private int length;
+	private boolean isOccupied;
 
 	
 	/**
 	 * Constructs a new Canton
 	 * */
-	public Canton(int id, int lenght){
+	public Canton(int id, int length){
 		this.id = id;
-		this.lenght = lenght;
+		this.length = length;
 	}
 	
 	public int getId() {
 		return id;
 	}
 
-	public int getLenght(){
-		return lenght;
+	public int getLength(){
+		return length;
 	}
 
 	@Override
@@ -47,11 +45,10 @@ public class Canton {
 	/**
 	 * Decide if a train can enter in a canton (ie. if the Canton is empty)
 	 * @param Train the train to eventually enter into the Canton
-	 * @throws InterruptedException ALEXIS JE METS QUOI ICI?
 	 */
-	public synchronized void enter(Train train) throws InterruptedException {
+	public synchronized void enter(Train train){
 		
-		if(occupyingTrain == true){
+		if(isOccupied == true){
 			System.out.println("no train");
 			try {
 				wait();
@@ -60,7 +57,7 @@ public class Canton {
 			}
 		}
 		
-		occupyingTrain=true;
+		isOccupied=true;
 		train.setPosition();
 	}
 
@@ -68,7 +65,7 @@ public class Canton {
 	 * Empty the Canton. Called when a train exits a canton
 	 */
 	public synchronized void exit() {
-		occupyingTrain = false;
+		isOccupied = false;
 		notify();
 	}
 
