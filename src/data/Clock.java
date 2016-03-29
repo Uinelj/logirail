@@ -11,7 +11,7 @@ public class Clock {
 	private int minute ;
 	private int second ;
 	/**
-	 * Initializes the clock at 00:00:00
+	 * Initializes a new clock at 00:00:00
 	 * */
 	public Clock(){
 		this.hour = 0 ;

@@ -56,7 +56,9 @@ public class Gare extends Canton{
 	}
 
 
-
+	/**
+	 * @param name New station name to set
+	 * */
 	public void setName(String name) {
 		this.name = name;
 	}

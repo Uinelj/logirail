@@ -11,11 +11,11 @@ package data;
 //TODO: Replace occupyingTrain by something more meaningful, ie. isOccupied ?
 public class Canton {
 	
-
+	//TODO: ALEXIS Refais ta doc please
 	/**
-	 * @param id of the train
-	 * @param size of the train
-	 * @param give the state of the canton ( true : the canton is occupied, false : the canton is not occupied )
+	 * @field id of the train
+	 * @field size of the train
+	 * @field give the state of the canton ( true : the canton is occupied, false : the canton is not occupied )
 	 */
 	
 	private int id;
@@ -23,7 +23,9 @@ public class Canton {
 	private boolean occupyingTrain;
 
 	
-	
+	/**
+	 * Constructs a new Canton
+	 * */
 	public Canton(int id, int lenght){
 		this.id = id;
 		this.lenght = lenght;

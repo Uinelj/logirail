@@ -146,14 +146,15 @@ public class Train {
 	public int pathFinding(int position, int endPath, ArrayList<Integer> path){
 		
 		int state=0;
-		/*on ajoute la position de départ*/
+		//A
+		/*on ajoute la position de depart*/
 		path.add(position);
 
-		/*on parcour récursivement toute les branches suivant le cantons actuel*/
+		/*on parcour recursivement toute les branches suivant le cantons actuel*/
 		for(int i=0 ;i < nextIs(position).size();i++){
 			
 			if(state != 2){
-				/*si l'arrête du graphe suivante est un canton
+				/*si l'arrete du graphe suivante est un canton
 				 * on fait un path finding
 				 */
 				if(isCanton(nextIs(position).get(i))){
@@ -162,7 +163,7 @@ public class Train {
 		
 				/*
 				 * Si c'est une gare on peut avoir deux choix:
-				 * 1) la gare est la gare à atteindre : on ajoute la gare au path et on retourne le path
+				 * 1) la gare est la gare a atteindre : on ajoute la gare au path et on retourne le path
 				 * 2) Ce n'est pas la gare finale, dans ce cas, le chemin n'est pas le bon
 				 * 
 				 */
@@ -177,7 +178,7 @@ public class Train {
 				
 		}
 		
-		/*retour null : le chemin n'est pas le bon, on retire la dernière valeure du path*/
+		/*retour null : le chemin n'est pas le bon, on retire la derniere valeure du path*/
 		if(state==0){
 			path.remove(path.size()-1);
 			return 0;
