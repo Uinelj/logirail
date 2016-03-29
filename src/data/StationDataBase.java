@@ -19,11 +19,11 @@ import org.json.simple.parser.JSONParser;
  *
  */
 public class StationDataBase {
-	private HashMap<Integer, Station> gares;
+	private HashMap<Integer, Station> stations;
 	private String path = "data/gare.json";
 	private static StationDataBase INSTANCE = new StationDataBase();
 	private StationDataBase(){
-		this.gares = new HashMap<Integer, Station>();
+		this.stations = new HashMap<Integer, Station>();
 		loadJsonGare(path);
 	}
 
@@ -50,7 +50,7 @@ public class StationDataBase {
             	//Ugly, but the lib doesnt provide some way to get strings.
             	currentStationName = (String) innerObj.get("name");
             	currentStationId = Integer.parseInt((String) innerObj.get("id"));
-            	gares.put(Integer.parseInt((String)innerObj.get("id")), new Station(currentStationName, currentStationId));
+            	stations.put(Integer.parseInt((String)innerObj.get("id")), new Station(currentStationName, currentStationId));
             }
         	
             	
@@ -64,7 +64,7 @@ public class StationDataBase {
 	 * @param id unique id of the Gare
 	 * */
 	public Station getGare(int id){
-		return gares.get(id);
+		return stations.get(id);
 	}
 	/**
 	 * Returns the GareDataBase object initialized.
@@ -75,7 +75,7 @@ public class StationDataBase {
 	}
 	@Override
 	public String toString() {
-		return "GareDataBase [gares=" + gares + "]";
+		return "GareDataBase [gares=" + stations + "]";
 	}
 
 	

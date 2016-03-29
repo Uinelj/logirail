@@ -23,7 +23,7 @@ public class Line {
 	private ArrayList<Canton> cantons;
 	private int size;
 	private String path="data/ligne.json";
-	private StationDataBase gareDataBase;
+	private StationDataBase stationDataBase;
 	private CantonDataBase cantonDataBase;
 	/**
 	 * Creates a new Ligne (line), following a set of Gare and a set of Canton.
@@ -32,8 +32,8 @@ public class Line {
 	 * @param cantonDataBase database of Canton to be used
 	 * */
     public Line(StationDataBase stationDataBase, CantonDataBase cantonDataBase){
-    	this.setCantonDataBase(cantonDataBase);
-    	this.setGareDataBase(gareDataBase);
+    	this.stationDataBase = stationDataBase;
+    	this.cantonDataBase = cantonDataBase;
     	size = 100;
     	line = new int[size][size];
     	cantons = new ArrayList<Canton>();
@@ -155,19 +155,14 @@ public class Line {
     }
 
     
-    public StationDataBase getGareDataBase() {
-		return gareDataBase;
+    public StationDataBase getStationDataBase() {
+		return stationDataBase;
 	}
 
-	public void setGareDataBase(StationDataBase gareDataBase) {
-		this.gareDataBase = gareDataBase;
-	}
 
 	public CantonDataBase getCantonDataBase() {
 		return cantonDataBase;
 	}
 
-	public void setCantonDataBase(CantonDataBase cantonDataBase) {
-		this.cantonDataBase = cantonDataBase;
-	}
+
 }
