@@ -36,6 +36,10 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
 
 /**
@@ -51,9 +55,7 @@ public class FirstViewController implements Initializable {
     @FXML
     private Path all,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,ubal;
     @FXML
-    private AnchorPane mainView;
-    @FXML
-    private AnchorPane view;
+    private AnchorPane mainView,anchorText,view;
     @FXML
     private JFXHamburger menu;
     @FXML
@@ -66,6 +68,10 @@ public class FirstViewController implements Initializable {
     private Font x3;
     @FXML
     private Color x4;
+    @FXML
+    private TextFlow textflow;
+
+
     // We had a train.
     final Rectangle train = new Rectangle(20,10);
     // We create a clock object.
@@ -96,16 +102,46 @@ public class FirstViewController implements Initializable {
         // We initialize a train.
         train.setFill(Color.web("#969696"));
         view.getChildren().add(train);
-
         // We initialize a clock.
 		Thread clockT = new Thread(clockR);
 		clockT.start();
 		System.out.println("thread demarre");
         //launchTrain();
-		  Timer timer = new Timer(true); //set it as a deamon
-		     timer.schedule(new changeTime(), 0, 200);
+		  Timer changeClock = new Timer(true); //set it as a deamon
+		     changeClock.schedule(new changeTime(), 0, 200);
 
+		     Timer textFlow = new Timer(true); //set it as a deamon
+		     textFlow.schedule(new textFlow(), 0, 2000);
+
+		     Text welcome = new Text(String.valueOf(clock.getHour())+":"+ String.valueOf(clock.getMinute())+":"+String.valueOf(clock.getSecond())+" : "+ "Welcome into logirail, the simulation of RER A is going to start.\n");
+		     welcome.setFont(Font.font("Helvetica", FontPosture.REGULAR, 13));
+		     welcome.setFill(Color.GREEN);
+		     TextFlow textflow = new TextFlow(welcome);
+		     anchorText.getChildren().add(textflow);
        	}
+
+    /**
+	 * This class modify the GUI hour.
+	 * */
+	public class textFlow extends TimerTask{
+	    @Override
+	    public void run() {
+
+		     //Text text1 = new Text("Big italic red text\n");
+		     //text1.setFill(Color.RED);
+//		     text1.setFont(Font.font("Helvetica", FontPosture.REGULAR, 10));
+//		     Text text2 = new Text(" little bold blue text");
+//		     text2.setFill(Color.BLUE);
+//		     text2.setFont(Font.font("Helvetica", FontWeight.BOLD, 10));
+//		     TextFlow textflow = new TextFlow(text1, text2);
+//System.out.println("test");
+
+	       ;
+
+	    }
+	}
+
+
     /**
 	 * This class modify the GUI hour.
 	 * */

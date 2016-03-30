@@ -654,7 +654,7 @@
                      </children></AnchorPane>
                   <ScrollPane prefHeight="140.0" prefWidth="466.0" styleClass="white" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css">
                     <content>
-                      <AnchorPane styleClass="white" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css" />
+                      <AnchorPane fx:id="anchorText" styleClass="white" stylesheets="@../../Ressources_Graphiques/css/jfoenix-design.css" />
                     </content>
                   </ScrollPane>
               </items>
