@@ -18,12 +18,12 @@ import org.json.simple.parser.JSONParser;
  * @author Abadji Julien
  *
  */
-public class GareDataBase {
-	private HashMap<Integer, Gare> gares;
+public class StationDataBase {
+	private HashMap<Integer, Station> stations;
 	private String path = "data/gare.json";
-	private static GareDataBase INSTANCE = new GareDataBase();
-	private GareDataBase(){
-		this.gares = new HashMap<Integer, Gare>();
+	private static StationDataBase INSTANCE = new StationDataBase();
+	private StationDataBase(){
+		this.stations = new HashMap<Integer, Station>();
 		loadJsonGare(path);
 	}
 
@@ -50,7 +50,7 @@ public class GareDataBase {
             	//Ugly, but the lib doesnt provide some way to get strings.
             	currentStationName = (String) innerObj.get("name");
             	currentStationId = Integer.parseInt((String) innerObj.get("id"));
-            	gares.put(Integer.parseInt((String)innerObj.get("id")), new Gare(currentStationName, currentStationId));
+            	stations.put(Integer.parseInt((String)innerObj.get("id")), new Station(currentStationName, currentStationId));
             }
         	
             	
@@ -58,20 +58,24 @@ public class GareDataBase {
             e.printStackTrace();
         }
 	}
-
-	public Gare getGare(int id){
-		return gares.get(id);
+	/**
+	 * Returns a specific Gare following its id
+	 * 
+	 * @param id unique id of the Gare
+	 * */
+	public Station getGare(int id){
+		return stations.get(id);
 	}
 	/**
 	 * Returns the GareDataBase object initialized.
 	 * @return The instance of the GareDataBase.
 	 */
-	public static GareDataBase getInstance(){
+	public static StationDataBase getInstance(){
 		return INSTANCE;
 	}
 	@Override
 	public String toString() {
-		return "GareDataBase [gares=" + gares + "]";
+		return "GareDataBase [gares=" + stations + "]";
 	}
 
 	

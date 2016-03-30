@@ -1,7 +1,8 @@
-import data.GareDataBase;
 import data.MissionCode;
 import data.MissionCodeDatabase;
 import data.ScheduleDatabase;
+import data.Station;
+import data.StationDataBase;
 
 public class Main {
 
@@ -13,7 +14,7 @@ public class Main {
 		/*System.out.println(mcd.getMissionCode("TEDI").toString());
 		System.out.println(mcd.getMissionCode("ZEBU"));
 		System.out.println(mcd.getMissionCode("NAGA"));*/
-		GareDataBase gdb = GareDataBase.getInstance();
+		StationDataBase gdb = StationDataBase.getInstance();
 		MissionCode tedi = mcd.getMissionCode("NAGA");
 		for(Integer i : tedi.getRoad()){
 			System.out.println(gdb.getGare(i).getName() + "\n");

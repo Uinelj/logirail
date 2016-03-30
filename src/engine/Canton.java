@@ -1,4 +1,4 @@
-package data;
+package engine;
 
 /**
  * The representation of a physical block where the train can be. A Canton can either be a station, or just a rails block.
@@ -7,34 +7,34 @@ package data;
  * 
  */
 //TODO: Rename to block ?
-//TODO: Replace lenght by length
-//TODO: Replace occupyingTrain by something more meaningful, ie. isOccupied ?
 public class Canton {
 	
-
+	//TODO: ALEXIS Refais ta doc please
 	/**
-	 * @param id of the train
-	 * @param size of the train
-	 * @param give the state of the canton ( true : the canton is occupied, false : the canton is not occupied )
+	 * @field id of the train
+	 * @field size of the train
+	 * @field give the state of the canton ( true : the canton is occupied, false : the canton is not occupied )
 	 */
 	
 	private int id;
-	private int lenght;
-	private boolean occupyingTrain;
+	private int length;
+	private boolean isOccupied;
 
 	
-	
-	public Canton(int id, int lenght){
+	/**
+	 * Constructs a new Canton
+	 * */
+	public Canton(int id, int length){
 		this.id = id;
-		this.lenght = lenght;
+		this.length = length;
 	}
 	
 	public int getId() {
 		return id;
 	}
 
-	public int getLenght(){
-		return lenght;
+	public int getLength(){
+		return length;
 	}
 
 	@Override
@@ -45,11 +45,10 @@ public class Canton {
 	/**
 	 * Decide if a train can enter in a canton (ie. if the Canton is empty)
 	 * @param Train the train to eventually enter into the Canton
-	 * @throws InterruptedException ALEXIS JE METS QUOI ICI?
 	 */
-	public synchronized void enter(Train train) throws InterruptedException {
+	public synchronized void enter(Train train){
 		
-		if(occupyingTrain == true){
+		if(isOccupied == true){
 			System.out.println("no train");
 			try {
 				wait();
@@ -58,7 +57,7 @@ public class Canton {
 			}
 		}
 		
-		occupyingTrain=true;
+		isOccupied=true;
 		train.setPosition();
 	}
 
@@ -66,7 +65,7 @@ public class Canton {
 	 * Empty the Canton. Called when a train exits a canton
 	 */
 	public synchronized void exit() {
-		occupyingTrain = false;
+		isOccupied = false;
 		notify();
 	}
 

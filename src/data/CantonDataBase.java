@@ -8,6 +8,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import engine.Canton;
 //TODO: Find a way to display accents.
 //TODO: Javadoc
 //TODO: Singleton
@@ -15,7 +16,7 @@ import org.json.simple.parser.JSONParser;
  * This class contains all the stations of the RER A.
  * It is built by parsing a JSON file, which is by default at data/gare.json, but we can specify another path to the constructor.
  * 
- * @author Abadji Julien
+ * @author Julien Abadji
  *
  */
 public class CantonDataBase {
