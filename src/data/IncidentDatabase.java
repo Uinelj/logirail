@@ -45,9 +45,9 @@ public class IncidentDatabase {
             while (it.hasNext()) { 
             	JSONObject innerObj = (JSONObject) it.next();
             	
-            	int id = (Integer)innerObj.get("Id");
+            	int id = Integer.parseInt((String) innerObj.get("Id"));
             	
-            	IncidentData actual = new IncidentData(id, (String)innerObj.get("Type"), (Integer)innerObj.get("Min_Time"), (Integer)innerObj.get("Max_Time"));
+            	IncidentData actual = new IncidentData(id, (String)innerObj.get("Type"), Integer.parseInt((String) innerObj.get("Min_Time")), Integer.parseInt((String) innerObj.get("Max_Time")));
             			
 	           	incidentDatabase.put(id, actual);	
             }
@@ -66,6 +66,10 @@ public class IncidentDatabase {
 	 */
 	public static IncidentDatabase getInstance(){
 		return INSTANCE ;
+	}
+	
+	public HashMap<Integer, IncidentData> getIncidentDatabase(){
+		return incidentDatabase ;
 	}
 	
 	

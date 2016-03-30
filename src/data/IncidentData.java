@@ -30,7 +30,7 @@ public class IncidentData {
 	}
 	
 	public String toString(){
-		String toString = "[Incident] ID : " + id + " Type : "+ type + " minTime : " + minTime + " maxTime : " + maxTime ;
+		String toString = "[Incident] ID : " + id + " --- Type : "+ type + " --- minTime : " + minTime + " --- maxTime : " + maxTime ;
 		
 		return toString ;
 	}
