@@ -44,6 +44,9 @@ public class Train extends Thread{
 		
 	}
 	
+	public int getPosition(){
+		return position;
+	}
 	public void run(){
 		Canton currentCanton;
 		Canton currentStation;
