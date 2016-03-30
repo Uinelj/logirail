@@ -20,9 +20,14 @@ import org.json.simple.parser.JSONParser;
 public class ScheduleDatabase {
 	private HashMap<String, Schedule> schedulesDatabase = new HashMap<String, Schedule>();
 	private static ScheduleDatabase INSTANCE = new ScheduleDatabase();
+	
+	/**
+	 * Constructor.
+	 */
 	private ScheduleDatabase (){
 		schedulesDatabase = schedulesParsing();
 	}
+	
 	/**
 	 * 
 	 * @return a HashMap of all schedules for every mission.
@@ -71,6 +76,17 @@ public class ScheduleDatabase {
         
         return schedulesDatabase ;
 	}
+	
+	/**
+	 * Getter of the Schedules HashMap.
+	 * 
+	 * @return the HashMap that contains all schedules for every code mission.
+	 * 
+	 */
+	public HashMap<String, Schedule> getScheduleDatabase(){
+		return schedulesDatabase ;
+	}
+	
 	/**
 	 * Getter of the current initialized instance of ScheduleDatabase
 	 * @return the initialized instance of ScheduleDatabase
@@ -78,6 +94,7 @@ public class ScheduleDatabase {
 	public static ScheduleDatabase getInstance(){
 		return INSTANCE;
 	}
+	
 	public String toString() {
 		String scheduleDB = "";
 		
