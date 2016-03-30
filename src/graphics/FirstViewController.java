@@ -40,44 +40,43 @@ import javafx.util.Duration;
 
 /**
  * FXML Controller class
- *
- * @author A
+ *  This class control every interaction with GUI.
+ * @author Arya JEMO
  */
 public class FirstViewController implements Initializable {
 
+	// Declaration of all FXML elements in order to control them.
     @FXML
     private VBox mainWindow;
-
     @FXML
-    private Path all,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,ubal	;
-
+    private Path all,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,ubal;
     @FXML
     private AnchorPane mainView;
-
     @FXML
     private AnchorPane view;
-
     @FXML
     private JFXHamburger menu;
-
     @FXML
     private JFXCheckBox filtreTous,filtreRetard,filtreArrivee,filtreDepart,filtreIncident;
-
     @FXML
     private Label hour,min,sec;
-
     @FXML
     private JFXButton x1,x2,x5;
-
     @FXML
     private Font x3;
-
     @FXML
     private Color x4;
-
+    // We had a train.
     final Rectangle train = new Rectangle(20,10);
+    // We create a clock object.
     private Clock clock = new Clock();
     private ClockThread clockR = new ClockThread(1, clock);
+
+    /**
+	 * This class is called by the main.fxml
+	 * @param The path of FXML.
+	 * @param All nodes and elements in the FXML.
+	 * */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -94,11 +93,11 @@ public class FirstViewController implements Initializable {
         assert x3 != null : "fx:id=\"x3\" was not injected: check your FXML file 'main.fxml'.";
         assert x4 != null : "fx:id=\"x4\" was not injected: check your FXML file 'main.fxml'.";
 
+        // We initialize a train.
         train.setFill(Color.web("#969696"));
-
         view.getChildren().add(train);
 
-
+        // We initialize a clock.
 		Thread clockT = new Thread(clockR);
 		clockT.start();
 		System.out.println("thread demarre");
@@ -107,7 +106,9 @@ public class FirstViewController implements Initializable {
 		     timer.schedule(new changeTime(), 0, 200);
 
        	}
-
+    /**
+	 * This class modify the GUI hour.
+	 * */
 	public class changeTime extends TimerTask{
 	    @Override
 	    public void run() {
@@ -121,11 +122,11 @@ public class FirstViewController implements Initializable {
 	    }
 	}
 
-	public void changeTime(){
-		hour.setText(String.valueOf(clock.getHour()));
-		min.setText(String.valueOf(clock.getMinute()));
-		sec.setText(String.valueOf(clock.getSecond()));
-	}
+//	public void changeTime(){
+//		hour.setText(String.valueOf(clock.getHour()));
+//		min.setText(String.valueOf(clock.getMinute()));
+//		sec.setText(String.valueOf(clock.getSecond()));
+//	}
 
 	public void launchTrain(){
 		  PathTransition TA1 = new PathTransition(Duration.millis(1000), A1, train);
@@ -144,16 +145,32 @@ public class FirstViewController implements Initializable {
 	public void filtre(ActionEvent e){
 	}
 
+
+    /**
+	 * This method control the x1 speed hour button.
+	 * @param The event that call the method.
+	 * */
+
 	public void buttonTimex1(ActionEvent e){
 		 System.out.println("Vitesse normale");
 		 clockR.setSpeed(1);
 
 	}
+	 /**
+		 * This method control the x2 speed hour button.
+		 * @param The event that call the method.
+		 * */
+
 	public void buttonTimex2(ActionEvent e){
 		 System.out.println("Vitesse 2");
 		 clockR.setSpeed(2);
 
 	}
+	 /**
+		 * This method control the x5 speed hour button.
+		 * @param The event that call the method.
+		 * */
+
 	public void buttonTimex5(ActionEvent e){
 		 System.out.println("Vitesse 5");
 		 clockR.setSpeed(5);
