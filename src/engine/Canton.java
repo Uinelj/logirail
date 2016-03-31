@@ -56,7 +56,7 @@ public class Canton {
 				e.printStackTrace();
 			}
 		}
-		
+		System.out.print("enter");
 		isOccupied=true;
 		train.setPosition();
 	}
@@ -65,6 +65,7 @@ public class Canton {
 	 * Empty the Canton. Called when a train exits a canton
 	 */
 	public synchronized void exit() {
+		System.out.println("exit");
 		isOccupied = false;
 		notify();
 	}
