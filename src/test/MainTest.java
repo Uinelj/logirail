@@ -18,10 +18,11 @@ public class MainTest {
 		CantonDataBase cantonDataBase = CantonDataBase.getInstance();
 		MissionCodeDatabase missionDb= MissionCodeDatabase.getInstance();
 		Line line = new Line(stationDataBase, cantonDataBase);
-		Train train = new Train("trainTest", missionDb.getMissionCode("TEDI"), 1,line);
-
+		Train train = new Train("Test", missionDb.getMissionCode("QAHA"), 1,line,1000);
+		train.start();
 		
-			train.start();
+		
+		
 			
 		
 	}

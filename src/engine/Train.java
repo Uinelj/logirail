@@ -21,6 +21,7 @@ public class Train extends Thread{
 	private Line line;
 	private int CodemissionPosition;
 	private ArrayList<Integer> path;
+	private int speed;
 	
 	/**
 	 * Builds a new Train which will be used by the simulation
@@ -30,10 +31,10 @@ public class Train extends Thread{
 	 * @param ligne graph of the line
 	 */
 	
-	public Train(String name, MissionCode missionCode, int id,Line line){
+	public Train(String name, MissionCode missionCode, int id,Line line, int speed){
 		this.line = line;
-
-		this.setName(name);
+		this.speed = speed;
+		this.name=name;
 		this.setMissionCode(missionCode);
 		this.setId(id);
 		end = true;
@@ -52,7 +53,7 @@ public class Train extends Thread{
 		Canton currentStation;
 
 		/*tant qu'on est pas arrivé à destination*/
-		while(position != missionCode.getRoad().get(missionCode.getRoad().size()-2)){
+		while(position != missionCode.getRoad().get(missionCode.getRoad().size()-1)){
 			
 			
 			if(isCanton(position)){//cas si le train se trouve sur un canton
@@ -60,7 +61,7 @@ public class Train extends Thread{
 				currentCanton = line.getCantonDataBase().getGare(position-45);
 				currentCanton.enter(this);//on rentre dans un canton
 				try {
-					Thread.sleep(200);
+					Thread.sleep(speed);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -84,6 +85,11 @@ public class Train extends Thread{
 
 			}
 			
+		}
+		
+		if(position == missionCode.getRoad().get(missionCode.getRoad().size()-1)){
+			System.out.print("train : "+name+"  "+line.getStationDataBase().getGare(position).getName());
+
 		}
 	}
 
@@ -130,6 +136,11 @@ public class Train extends Thread{
 		 * the position of the start station is increment by 1
 		 */
 		if(path.size()==2){
+			
+			if(!isCanton(position)){
+				System.out.print("train : "+name+"  "+line.getStationDataBase().getGare(position).getName());
+
+			}
 			CodemissionPosition++;
 			position = path.get(1);
 			
@@ -138,7 +149,7 @@ public class Train extends Thread{
 		/*if the size of the path is 3, the train is in a canton*/
 		
 		else if(path.size()==3){
-			System.out.println(line.getStationDataBase().getGare(position).getName());
+			System.out.print("train : "+name+"  "+line.getStationDataBase().getGare(position).getName());
 			
 			position = path.get(1);
 
@@ -220,6 +231,7 @@ public class Train extends Thread{
 	 * */
 	public Boolean isCanton(int id){
 
+		Canton canton = line.getCantonDataBase().getGare(id);
     	if(id >45)
     		return true;
     	else 
