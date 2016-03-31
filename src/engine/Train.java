@@ -52,7 +52,7 @@ public class Train extends Thread{
 		Canton currentCanton;
 		Canton currentStation;
 
-		/*tant qu'on est pas arrivé à destination*/
+		/*tant qu'on est pas arrivï¿½ ï¿½ destination*/
 		while(position != missionCode.getRoad().get(missionCode.getRoad().size()-1)){
 			
 			
@@ -77,7 +77,7 @@ public class Train extends Thread{
 			else{//case si le train se trouve sur une gare
 				currentStation = new Station("", 0);
 				
-				//pas de sleep pour l'instant, à voir avec les horaires ou mettre une durée d'arrêt
+				//pas de sleep pour l'instant, ï¿½ voir avec les horaires ou mettre une durï¿½e d'arrï¿½t
 				
 				currentStation = line.getStationDataBase().getGare(position);
 				currentStation.enter(this);//on rentre dans un canton
@@ -88,7 +88,7 @@ public class Train extends Thread{
 		}
 		
 		if(position == missionCode.getRoad().get(missionCode.getRoad().size()-1)){
-			System.out.print("train : "+name+"  "+line.getStationDataBase().getGare(position).getName());
+			System.out.println("train : "+name+"  gare: "+line.getStationDataBase().getGare(position).getName());
 
 		}
 	}
@@ -138,7 +138,7 @@ public class Train extends Thread{
 		if(path.size()==2){
 			
 			if(!isCanton(position)){
-				System.out.print("train : "+name+"  "+line.getStationDataBase().getGare(position).getName());
+				System.out.println("train : "+name+"  gare: "+line.getStationDataBase().getGare(position).getName());
 
 			}
 			CodemissionPosition++;
@@ -149,7 +149,7 @@ public class Train extends Thread{
 		/*if the size of the path is 3, the train is in a canton*/
 		
 		else if(path.size()==3){
-			System.out.print("train : "+name+"  "+line.getStationDataBase().getGare(position).getName());
+			System.out.println("train : "+name+"  gare: "+line.getStationDataBase().getGare(position).getName());
 			
 			position = path.get(1);
 

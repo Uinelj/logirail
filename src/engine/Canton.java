@@ -56,7 +56,7 @@ public class Canton {
 				e.printStackTrace();
 			}
 		}
-		System.out.print("enter");
+		System.out.println("enter");
 		isOccupied=true;
 		train.setPosition();
 	}
