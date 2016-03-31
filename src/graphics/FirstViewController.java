@@ -63,7 +63,7 @@ public class FirstViewController implements Initializable {
     @FXML
     private Label hour,min,sec;
     @FXML
-    private JFXButton x1,x2,x5;
+    private JFXButton x1,x2,x5,x10;
     @FXML
     private Font x3;
     @FXML
@@ -108,7 +108,7 @@ public class FirstViewController implements Initializable {
 		System.out.println("thread demarre");
         //launchTrain();
 		  Timer changeClock = new Timer(true); //set it as a deamon
-		     changeClock.schedule(new changeTime(), 0, 200);
+		     changeClock.schedule(new changeTime(), 0, 100);
 
 		     Timer textFlow = new Timer(true); //set it as a deamon
 		     textFlow.schedule(new textFlow(), 0, 2000);
@@ -118,6 +118,10 @@ public class FirstViewController implements Initializable {
 		     welcome.setFill(Color.GREEN);
 		     TextFlow textflow = new TextFlow(welcome);
 		     anchorText.getChildren().add(textflow);
+
+		     Timer train = new Timer(true); //set it as a deamon
+		     train.schedule(new launchTrain(), 0, 2000);
+
        	}
 
     /**
@@ -151,31 +155,36 @@ public class FirstViewController implements Initializable {
 
 	        Platform.runLater(() -> {
 	    		hour.setText("0"+String.valueOf(clock.getHour()));
-	    		min.setText("0"+String.valueOf(clock.getMinute()));
+	    		if(clock.getMinute()>=10){
+		    		min.setText(String.valueOf(clock.getMinute()));
+	    		}
+	    		else{
+		    		min.setText("0"+String.valueOf(clock.getMinute()));
+	    		}
 	    		sec.setText(String.valueOf(clock.getSecond()));
 	        });
 
 	    }
 	}
 
-//	public void changeTime(){
-//		hour.setText(String.valueOf(clock.getHour()));
-//		min.setText(String.valueOf(clock.getMinute()));
-//		sec.setText(String.valueOf(clock.getSecond()));
-//	}
+	public class launchTrain extends TimerTask{
 
-	public void launchTrain(){
-		  PathTransition TA1 = new PathTransition(Duration.millis(1000), A1, train);
-		  TA1.setCycleCount(2);
-		  //TA1.setOnFinished(new EventHandler<ActionEvent>() {
-				//@Override
-				//public void handle(ActionEvent finishHim) {view.getChildren().remove(train); }
-			//});
-		  TA1.play();
-		  TA1.setNode(train);
-		  TA1.setPath(A2);
-		  System.out.println("breh");
-		  TA1.play();
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			  PathTransition TA1 = new PathTransition(Duration.millis(1000), A1, train);
+			  TA1.setCycleCount(2);
+			  //TA1.setOnFinished(new EventHandler<ActionEvent>() {
+					//@Override
+					//public void handle(ActionEvent finishHim) {view.getChildren().remove(train); }
+				//});
+			  TA1.play();
+			  TA1.setNode(train);
+			  TA1.setPath(A2);
+			  System.out.println("breh");
+			  TA1.play();
+		}
+
 	}
 
 	public void filtre(ActionEvent e){
@@ -210,7 +219,15 @@ public class FirstViewController implements Initializable {
 	public void buttonTimex5(ActionEvent e){
 		 System.out.println("Vitesse 5");
 		 clockR.setSpeed(5);
+	}
 
+/**
+	 * This method control the x10 speed hour button.
+	 * @param The event that call the method.
+	 * */
+	public void buttonTimex10(ActionEvent e){
+		 System.out.println("Vitesse 10");
+		 clockR.setSpeed(10);
 	}
 
 	}
