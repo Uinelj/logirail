@@ -40,7 +40,7 @@ public class Line {
     	init();
     	jSonLoad();
     	reverse();
-    	affiche();
+    	//affiche();
     }
     /**
      * Parses the JSON following the path attribute of the class, and loads it onto I don't know.
@@ -57,8 +57,8 @@ public class Line {
             JSONArray lang = (JSONArray) jsonObject.get("line"); //why lang?
     		JSONArray road;
 
-            int in;//ensemble de départ dans la matrice
-            int out;//ensemble d'arrivée dans la matrice
+            int in;//ensemble de dï¿½part dans la matrice
+            int out;//ensemble d'arrivï¿½e dans la matrice
             int actu=0;
             Iterator it = lang.iterator();
             while(it.hasNext()){

@@ -21,7 +21,7 @@ public class ClockThread implements Runnable {
 	 */
 	public ClockThread(Clock clock){
 		this.speed = 1 ;
-		time.set(00, 00, 00, 00, 00, 00);
+		time.set(00, 00, 00, 05, 00, 00);
 		this.clock = clock ;
 	}
 
@@ -33,7 +33,7 @@ public class ClockThread implements Runnable {
 	 */
 	public ClockThread(int speed, Clock clock){
 		this.speed = speed ;
-		time.set(00, 00, 00, 00, 00, 00);
+		time.set(00, 00, 00, 05, 00, 00);
 		this.clock = clock ;
 	}
 
@@ -41,7 +41,7 @@ public class ClockThread implements Runnable {
 	 * Thread run function which increment the seconds and stop when it's 23:59:59.
 	 */
 	public void run() {
-		while(((time.get(Calendar.HOUR_OF_DAY)!=23)
+		while(((time.get(Calendar.HOUR_OF_DAY)!=4)
 				|| (time.get(Calendar.MINUTE)!=59)
 				|| (time.get(Calendar.SECOND)!=59))
 				|| (!Thread.currentThread().isInterrupted())){
@@ -50,7 +50,7 @@ public class ClockThread implements Runnable {
 				time.add(Calendar.SECOND, 1);
 				clock.setClock(time.get(Calendar.HOUR_OF_DAY), time.get(Calendar.MINUTE), time.get(Calendar.SECOND));
 
-				//System.out.println(clock.toString());
+				System.out.println(clock.toString());
 			}
 			catch(InterruptedException ie){
 

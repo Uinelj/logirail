@@ -1,5 +1,10 @@
 package data;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import graphics.FirstViewController;
 
 /**
@@ -11,10 +16,10 @@ public class Clock {
 	private int minute ;
 	private int second ;
 	/**
-	 * Initializes a new clock at 00:00:00
+	 * Initializes a new clock at 05:00:00
 	 * */
 	public Clock(){
-		this.hour = 0 ;
+		this.hour = 5 ;
 		this.minute = 0 ;
 		this.second = 0 ;
 	}
@@ -76,5 +81,18 @@ public class Clock {
 	 * */
 	public String toString(){
 		return (this.hour + ":" + this.minute + ":" + this.second);
+	}
+	
+	public Date getTime(){
+		Date time = new Date() ;
+		DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+		
+		try {
+			time = timeFormat.parse(hour + ":" + minute + ":" + second);
+		}catch(ParseException e){
+			e.printStackTrace();
+		}
+		
+		return time ;
 	}
 }

@@ -1,5 +1,6 @@
 package engine;
 
+import java.nio.charset.CoderMalfunctionError;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -9,8 +10,16 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 
+import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
+
+import data.CantonDataBase;
+import data.Clock;
+import data.Line;
+import data.MissionCode;
+import data.MissionCodeDatabase;
 import data.Schedule;
 import data.ScheduleDatabase;
+import data.StationDataBase;
 
 /**
  * This class is the control tower, she creates all trains & "control" them.
@@ -18,15 +27,19 @@ import data.ScheduleDatabase;
  * @author Alexandre Fourgs
  *
  */
-public class ControlTower {
+public class ControlTower extends Thread {
 	private static ControlTower INSTANCE = new ControlTower() ;
-	LinkedHashMap<Date, ArrayList<String>> fifo = new LinkedHashMap<Date, ArrayList<String>>();
+	private LinkedHashMap<Date, ArrayList<String>> fifo = new LinkedHashMap<Date, ArrayList<String>>();
+	// L'horloge fait-elle partie de la tour de contrôle ?
+	private Clock clockData = new Clock();
+	private ClockThread clock ;
 	
 	/**
 	 * Constructor
 	 */
 	private ControlTower (){
 		fifo = initializeFifo();
+		clock = new ClockThread(1, clockData);
 	}
 	
 	/**
@@ -92,8 +105,6 @@ public class ControlTower {
 			time.add(Calendar.MINUTE, 1);
 		}
 		
-		// Ranger par ordre croissant les horaires de tout les codes missions
-		
 		return fifo ;
 	}
 	
@@ -136,8 +147,21 @@ public class ControlTower {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return the LinkedHashMap of every trains that have to be launch in a day. 
+	 */
 	public LinkedHashMap<Date, ArrayList<String>> getFifo(){
 		return fifo ;
+	}
+	
+	/**
+	 * This method modify the clock speed.
+	 * 
+	 * @param speed is an integer that control speed.
+	 */
+	public void setClockSpeed (int speed){
+		clock.setSpeed(speed);
 	}
 	
 	/**
@@ -147,6 +171,45 @@ public class ControlTower {
 	public static ControlTower getInstance(){
 		return INSTANCE ;
 	}
+	
+	public void run(){
+		int hour ;
+		int minute ;
+		int idTrain = 0 ;
+		HashMap<String, MissionCode> missionCodeDatabase = MissionCodeDatabase.getInstance().getMissionCodeDatabase();
+		Date actualClock = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+		ArrayList<String> missionsToLaunch ;
+		
+		Thread clockThread = new Thread(clock);
+		clockThread.start();
+		
+		while(!isInterrupted()){
+			idTrain++ ;
+			hour = clockData.getHour();
+			minute = clockData.getMinute();
+			
+			try{
+				actualClock = dateFormat.parse(hour + ":" + minute);
+			}catch(ParseException e){
+				e.printStackTrace();
+			}
+			
+			if(fifo.containsKey(actualClock)){
+				missionsToLaunch = fifo.get(actualClock);
+				
+				for(int i = 0 ; i < missionsToLaunch.size() ; i++){
+					// Lancher tous les trains de missionsToLaunch.
+					Train train = new Train("test" + idTrain, missionCodeDatabase.get(missionsToLaunch.get(i)), idTrain, new Line(StationDataBase.getInstance(), CantonDataBase.getInstance()));
+					train.start();
+					System.out.println("Train : " + train.getTrainId() + " || Mission Code : " +train.getMissionCode()+ " || started !");
+				}
+				
+				fifo.remove(actualClock);
+			}
+		}
+	}
+	
 	/**
 	 * 
 	 * Bloc note idée de création de la tour de contrôle.

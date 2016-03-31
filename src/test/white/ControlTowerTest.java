@@ -16,7 +16,11 @@ public class ControlTowerTest {
 	 */
 	public static void main(String[] args) {
 		ControlTower controler = ControlTower.getInstance() ;
-		LinkedHashMap<Date, ArrayList<String>> scheduleFile = controler.getFifo();
+		
+		/*
+		 * --- Test pour la liste des trains à lancer dans la journée, fonctionne bien. ---
+		 */
+		/*LinkedHashMap<Date, ArrayList<String>> scheduleFile = controler.getFifo();
 		
 		Iterator it = scheduleFile.keySet().iterator();
 		
@@ -36,9 +40,12 @@ public class ControlTowerTest {
 				System.out.println(actualMission);
 			}
 		}
+		*/
 		
-		// Teste de suppression d'un train, on teste pour le dernier train et on ré-affiche la liste.
-		controler.deleteTrain("NAGA", "19:10");
+		/*
+		 * --- Test de suppression d'un train, on teste pour le dernier train et on ré-affiche la liste. ---
+		 */
+		/*controler.deleteTrain("NAGA", "19:10");
 		
 		it = scheduleFile.keySet().iterator();
 		while(it.hasNext()){
@@ -56,7 +63,9 @@ public class ControlTowerTest {
 				System.out.println(actualMission);
 			}
 		}
+		*/
 		
+		controler.setClockSpeed(30);
+		controler.start();
 	}
-
 }
