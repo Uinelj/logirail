@@ -88,7 +88,7 @@ public class Train extends Thread{
 		}
 		
 		if(position == missionCode.getRoad().get(missionCode.getRoad().size()-1)){
-			System.out.print("train : "+name+"  "+line.getStationDataBase().getGare(position).getName());
+			System.out.println("train : "+name+"  gare: "+line.getStationDataBase().getGare(position).getName());
 
 		}
 	}
@@ -138,7 +138,7 @@ public class Train extends Thread{
 		if(path.size()==2){
 			
 			if(!isCanton(position)){
-				System.out.print("train : "+name+"  "+line.getStationDataBase().getGare(position).getName());
+				System.out.println("train : "+name+"  gare: "+line.getStationDataBase().getGare(position).getName());
 
 			}
 			CodemissionPosition++;
@@ -149,7 +149,7 @@ public class Train extends Thread{
 		/*if the size of the path is 3, the train is in a canton*/
 		
 		else if(path.size()==3){
-			System.out.print("train : "+name+"  "+line.getStationDataBase().getGare(position).getName());
+			System.out.println("train : "+name+"  gare: "+line.getStationDataBase().getGare(position).getName());
 			
 			position = path.get(1);
 

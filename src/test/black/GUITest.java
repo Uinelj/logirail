@@ -1,13 +1,13 @@
 package test.black;
 
+import graphics.FirstView;
+
 public class GUITest {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// GUITest
-
+		// TODO Auto-generated method stub
+		FirstView fv = new FirstView();
+		fv.launch(FirstView.class,args);
 	}
 
 }
