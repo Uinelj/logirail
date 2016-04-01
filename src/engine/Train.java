@@ -37,7 +37,7 @@ public class Train extends Thread{
 		this.name=name;
 		this.setMissionCode(missionCode);
 		this.setId(id);
-		end = true;
+		end = false;
 		position = missionCode.getRoad().get(0);
 		
 		CodemissionPosition =0;
@@ -58,7 +58,7 @@ public class Train extends Thread{
 			
 			if(isCanton(position)){//cas si le train se trouve sur un canton
 				currentCanton = new Canton(0, 0);
-				currentCanton = line.getCantonDataBase().getGare(position-45);
+				currentCanton = line.getCantonDataBase().getGare(position-46);
 				currentCanton.enter(this);//on rentre dans un canton
 				try {
 					Thread.sleep(speed);
@@ -89,7 +89,7 @@ public class Train extends Thread{
 		
 		if(position == missionCode.getRoad().get(missionCode.getRoad().size()-1)){
 			System.out.println("train : "+name+"  gare: "+line.getStationDataBase().getGare(position).getName());
-
+			end = true;
 		}
 	}
 
@@ -158,7 +158,7 @@ public class Train extends Thread{
 		/*else, the pathfinding is out*/
 		else {
 			System.out.println("pathfinding out" + position);
-			
+			System.out.println("+"+path.size());
 			try {
 				Thread.sleep(5000);
 			} catch (InterruptedException e) {
@@ -256,6 +256,10 @@ public class Train extends Thread{
 		}
 		return nextPos;
 		
+	}
+	
+	public Boolean getEnd(){
+		return end;
 	}
 
 }

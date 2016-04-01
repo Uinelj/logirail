@@ -30,7 +30,7 @@ import data.StationDataBase;
 public class ControlTower extends Thread {
 	private static ControlTower INSTANCE = new ControlTower() ;
 	private LinkedHashMap<Date, ArrayList<String>> fifo = new LinkedHashMap<Date, ArrayList<String>>();
-	// L'horloge fait-elle partie de la tour de contrôle ?
+	private ArrayList<Train> trainsOnRoad = new ArrayList<Train>();
 	private Clock clockData = new Clock();
 	private ClockThread clock ;
 	
@@ -201,13 +201,25 @@ public class ControlTower extends Thread {
 				for(int i = 0 ; i < missionsToLaunch.size() ; i++){
 					// Lancher tous les trains de missionsToLaunch.
 					Train train = new Train("test" + idTrain, missionCodeDatabase.get(missionsToLaunch.get(i)), idTrain, new Line(StationDataBase.getInstance(), CantonDataBase.getInstance()), 1);
+					trainsOnRoad.add(train);
 					train.start();
+					
+					for (int j = 0 ; j<trainsOnRoad.size() ; j++){
+						if (trainsOnRoad.get(j) == null){
+							trainsOnRoad.remove(j);
+						}
+					}
+					
 					System.out.println("Train : " + train.getTrainId() + " || Mission Code : " +train.getMissionCode().getName()+ " || started !");
 				}
 				
 				fifo.remove(actualClock);
 			}
 		}
+	}
+	
+	public ArrayList<Train> getTrainsOnRoad(){
+		return trainsOnRoad;
 	}
 	
 	/**

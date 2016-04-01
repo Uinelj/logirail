@@ -119,6 +119,7 @@ public class FirstViewController implements Initializable {
 		     TextFlow textflow = new TextFlow(welcome);
 		     anchorText.getChildren().add(textflow);
 
+
 		     Timer train = new Timer(true); //set it as a deamon
 		     train.schedule(new launchTrain(), 0, 2000);
 
@@ -172,7 +173,7 @@ public class FirstViewController implements Initializable {
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
-			  PathTransition TA1 = new PathTransition(Duration.millis(1000), A1, train);
+			  PathTransition TA1 = new PathTransition(Duration.millis(1000), all, train);
 			  TA1.setCycleCount(2);
 			  //TA1.setOnFinished(new EventHandler<ActionEvent>() {
 					//@Override
@@ -181,7 +182,6 @@ public class FirstViewController implements Initializable {
 			  TA1.play();
 			  TA1.setNode(train);
 			  TA1.setPath(A2);
-			  System.out.println("breh");
 			  TA1.play();
 		}
 

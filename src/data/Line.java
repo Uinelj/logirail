@@ -34,13 +34,13 @@ public class Line {
     public Line(StationDataBase stationDataBase, CantonDataBase cantonDataBase){
     	this.stationDataBase = stationDataBase;
     	this.cantonDataBase = cantonDataBase;
-    	size = 100;
+    	size = 105;
     	line = new int[size][size];
     	cantons = new ArrayList<Canton>();
     	init();
     	jSonLoad();
     	reverse();
-    	//affiche();
+    	affiche();
     }
     /**
      * Parses the JSON following the path attribute of the class, and loads it onto I don't know.
@@ -148,7 +148,10 @@ public class Line {
     	for(int i=0; i<size;i++){
     		for(int j=0;j<size;j++){
     			if(line[i][j] == 1){
-    				line[j][i]=1;
+    				if(i<=46)
+    					line[j][i]=1;
+    				else 
+    					line[j][i]=1;
     			}
     		}
     	}
