@@ -195,6 +195,12 @@ public class ControlTower extends Thread {
 				e.printStackTrace();
 			}
 			
+			for (int j = 0 ; j<trainsOnRoad.size() ; j++){
+				if (trainsOnRoad.get(j).getEnd() == true){
+					trainsOnRoad.remove(j);
+				}
+			}
+			
 			if(fifo.containsKey(actualClock)){
 				missionsToLaunch = fifo.get(actualClock);
 				
@@ -203,12 +209,6 @@ public class ControlTower extends Thread {
 					Train train = new Train("test" + idTrain, missionCodeDatabase.get(missionsToLaunch.get(i)), idTrain, new Line(StationDataBase.getInstance(), CantonDataBase.getInstance()), 1);
 					trainsOnRoad.add(train);
 					train.start();
-					
-					for (int j = 0 ; j<trainsOnRoad.size() ; j++){
-						if (trainsOnRoad.get(j) == null){
-							trainsOnRoad.remove(j);
-						}
-					}
 					
 					System.out.println("Train : " + train.getTrainId() + " || Mission Code : " +train.getMissionCode().getName()+ " || started !");
 				}
