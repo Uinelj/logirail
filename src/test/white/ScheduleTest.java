@@ -1,17 +1,15 @@
 package test.white;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
+import static org.junit.Assert.assertTrue;
+import junit.framework.TestCase;
+
 import org.junit.Test;
-import data.MissionCode;
+
 import data.MissionCodeDatabase;
 import data.Schedule;
 import data.ScheduleDatabase;
 
-public class ScheduleTest {
+public class ScheduleTest extends TestCase{
 
 	/**
 	 * Class that tests GareCodeDatabase
@@ -20,7 +18,7 @@ public class ScheduleTest {
 	 * 
 	 */
 	@Test
-	public void testSchedule {
+	public void testSchedule() {
 		MissionCodeDatabase mcdb = MissionCodeDatabase.getInstance();
 		ScheduleDatabase sdb = ScheduleDatabase.getInstance();
 		for(String missionCode : mcdb.getMissionCodeDatabase().keySet()) {
