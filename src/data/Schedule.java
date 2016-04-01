@@ -59,5 +59,12 @@ public class Schedule {
 		
 		return message ;
 	}
+	
+	public boolean equals(Schedule schedule) {
+		if( (this.missionCode.equals(schedule.getCode())) && ( this.dates.equals(schedule.getDates()) )) {
+			return true;
+		}
+		return false;
+	}
 
 }

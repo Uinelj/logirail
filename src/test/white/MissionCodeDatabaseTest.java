@@ -15,11 +15,15 @@ public class MissionCodeDatabaseTest {
 	System.out.println("	"+MCDB.toString());
 
 	System.out.println("Test 2 : unique mission");
-	System.out.println("	-TEDI :"+MCDB.getMissionCode("TEDI").toString());
+	for( String missionCode : MCDB.getMissionCodeDatabase().keySet()){
+		System.out.println("	-"+missionCode+": "+MCDB.getMissionCode(missionCode));
+	}
+	/*System.out.println("	-TEDI :"+MCDB.getMissionCode("TEDI").toString());
 	System.out.println("	-ZEBU :"+MCDB.getMissionCode("ZEBU"));
-	System.out.println("	-NAGA :"+MCDB.getMissionCode("NAGA"));
+	System.out.println("	-NAGA :"+MCDB.getMissionCode("NAGA"));*/
 	
 	System.out.println("Test 3 : get all mission codes NAME only");
-	System.out.println("	"+MCDB.getMissionCode("TEDI").getName());
+	System.out.println("	"+MCDB.getMissionCode("zdzdca"));
+	
 	}
 }
