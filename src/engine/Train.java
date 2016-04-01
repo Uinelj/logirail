@@ -257,5 +257,9 @@ public class Train extends Thread{
 		return nextPos;
 		
 	}
+	
+	public Boolean getEnd(){
+		return end;
+	}
 
 }
