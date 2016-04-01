@@ -58,7 +58,7 @@ public class Train extends Thread{
 			
 			if(isCanton(position)){//cas si le train se trouve sur un canton
 				currentCanton = new Canton(0, 0);
-				currentCanton = line.getCantonDataBase().getGare(position-45);
+				currentCanton = line.getCantonDataBase().getGare(position-46);
 				currentCanton.enter(this);//on rentre dans un canton
 				try {
 					Thread.sleep(speed);
@@ -158,7 +158,7 @@ public class Train extends Thread{
 		/*else, the pathfinding is out*/
 		else {
 			System.out.println("pathfinding out" + position);
-			System.out.println(path.size());
+			System.out.println("+"+path.size());
 			try {
 				Thread.sleep(5000);
 			} catch (InterruptedException e) {
