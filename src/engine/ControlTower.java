@@ -200,9 +200,9 @@ public class ControlTower extends Thread {
 				
 				for(int i = 0 ; i < missionsToLaunch.size() ; i++){
 					// Lancher tous les trains de missionsToLaunch.
-					Train train = new Train("test" + idTrain, missionCodeDatabase.get(missionsToLaunch.get(i)), idTrain, new Line(StationDataBase.getInstance(), CantonDataBase.getInstance()));
+					Train train = new Train("test" + idTrain, missionCodeDatabase.get(missionsToLaunch.get(i)), idTrain, new Line(StationDataBase.getInstance(), CantonDataBase.getInstance()), 1);
 					train.start();
-					System.out.println("Train : " + train.getTrainId() + " || Mission Code : " +train.getMissionCode()+ " || started !");
+					System.out.println("Train : " + train.getTrainId() + " || Mission Code : " +train.getMissionCode().getName()+ " || started !");
 				}
 				
 				fifo.remove(actualClock);

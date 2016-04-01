@@ -52,7 +52,7 @@ public class Train extends Thread{
 		Canton currentCanton;
 		Canton currentStation;
 
-		/*tant qu'on est pas arrivé à destination*/
+		/*tant qu'on est pas arrivÃ© Ã  destination*/
 		while(position != missionCode.getRoad().get(missionCode.getRoad().size()-1)){
 			
 			
@@ -77,7 +77,7 @@ public class Train extends Thread{
 			else{//case si le train se trouve sur une gare
 				currentStation = new Station("", 0);
 				
-				//pas de sleep pour l'instant, à voir avec les horaires ou mettre une durée d'arrêt
+				//pas de sleep pour l'instant, ï¿½ voir avec les horaires ou mettre une durï¿½e d'arrï¿½t
 				
 				currentStation = line.getStationDataBase().getGare(position);
 				currentStation.enter(this);//on rentre dans un canton
