@@ -37,7 +37,7 @@ public class Train extends Thread{
 		this.name=name;
 		this.setMissionCode(missionCode);
 		this.setId(id);
-		end = true;
+		end = false;
 		position = missionCode.getRoad().get(0);
 		
 		CodemissionPosition =0;
@@ -89,7 +89,7 @@ public class Train extends Thread{
 		
 		if(position == missionCode.getRoad().get(missionCode.getRoad().size()-1)){
 			System.out.println("train : "+name+"  gare: "+line.getStationDataBase().getGare(position).getName());
-
+			end = true;
 		}
 	}
 

@@ -148,7 +148,10 @@ public class Line {
     	for(int i=0; i<size;i++){
     		for(int j=0;j<size;j++){
     			if(line[i][j] == 1){
-    				line[j][i]=1;
+    				if(i<=46)
+    					line[j][i]=1;
+    				else 
+    					line[j][i]=1;
     			}
     		}
     	}

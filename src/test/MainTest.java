@@ -19,7 +19,7 @@ public class MainTest {
 		MissionCodeDatabase missionDb= MissionCodeDatabase.getInstance();
 		Line line = new Line(stationDataBase, cantonDataBase);
 		
-		Train train = new Train("Train de test", missionDb.getMissionCode("UBAL"), 1,line,1000);
+		Train train = new Train("Train de test", missionDb.getMissionCode("NAGA"), 1,line,1000);
 		train.start();
 		
 		
