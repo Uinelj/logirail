@@ -158,7 +158,7 @@ public class Train extends Thread{
 		/*else, the pathfinding is out*/
 		else {
 			System.out.println("pathfinding out" + position);
-			
+			System.out.println(path.size());
 			try {
 				Thread.sleep(5000);
 			} catch (InterruptedException e) {

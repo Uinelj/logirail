@@ -34,13 +34,13 @@ public class Line {
     public Line(StationDataBase stationDataBase, CantonDataBase cantonDataBase){
     	this.stationDataBase = stationDataBase;
     	this.cantonDataBase = cantonDataBase;
-    	size = 100;
+    	size = 105;
     	line = new int[size][size];
     	cantons = new ArrayList<Canton>();
     	init();
     	jSonLoad();
     	reverse();
-    	//affiche();
+    	affiche();
     }
     /**
      * Parses the JSON following the path attribute of the class, and loads it onto I don't know.
